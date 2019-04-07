@@ -12,6 +12,11 @@
 		83B4B776225A146A00632FB4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83B4B774225A146A00632FB4 /* Main.storyboard */; };
 		83B4B778225A146B00632FB4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83B4B777225A146B00632FB4 /* Assets.xcassets */; };
 		83B4B77B225A146B00632FB4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83B4B779225A146B00632FB4 /* LaunchScreen.storyboard */; };
+		83B4B789225A14DD00632FB4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B4B788225A14DD00632FB4 /* AppDelegate.swift */; };
+		83B4B78B225A14DD00632FB4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B4B78A225A14DD00632FB4 /* ViewController.swift */; };
+		83B4B78E225A14DD00632FB4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83B4B78C225A14DD00632FB4 /* Main.storyboard */; };
+		83B4B793225A14DD00632FB4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83B4B791225A14DD00632FB4 /* LaunchScreen.storyboard */; };
+		83B4B799225A154200632FB4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83B4B777225A146B00632FB4 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,10 +27,23 @@
 		83B4B777225A146B00632FB4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		83B4B77A225A146B00632FB4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		83B4B77C225A146B00632FB4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		83B4B786225A14DD00632FB4 /* wagonadmin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wagonadmin.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		83B4B788225A14DD00632FB4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		83B4B78A225A14DD00632FB4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		83B4B78D225A14DD00632FB4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		83B4B792225A14DD00632FB4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		83B4B794225A14DD00632FB4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		83B4B76A225A146A00632FB4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		83B4B783225A14DD00632FB4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -38,7 +56,9 @@
 		83B4B764225A146A00632FB4 = {
 			isa = PBXGroup;
 			children = (
+				83B4B798225A151700632FB4 /* Shared */,
 				83B4B76F225A146A00632FB4 /* wagon */,
+				83B4B787225A14DD00632FB4 /* wagonadmin */,
 				83B4B76E225A146A00632FB4 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -47,6 +67,7 @@
 			isa = PBXGroup;
 			children = (
 				83B4B76D225A146A00632FB4 /* wagon.app */,
+				83B4B786225A14DD00632FB4 /* wagonadmin.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -57,11 +78,30 @@
 				83B4B770225A146A00632FB4 /* AppDelegate.swift */,
 				83B4B772225A146A00632FB4 /* ViewController.swift */,
 				83B4B774225A146A00632FB4 /* Main.storyboard */,
-				83B4B777225A146B00632FB4 /* Assets.xcassets */,
 				83B4B779225A146B00632FB4 /* LaunchScreen.storyboard */,
 				83B4B77C225A146B00632FB4 /* Info.plist */,
 			);
 			path = wagon;
+			sourceTree = "<group>";
+		};
+		83B4B787225A14DD00632FB4 /* wagonadmin */ = {
+			isa = PBXGroup;
+			children = (
+				83B4B788225A14DD00632FB4 /* AppDelegate.swift */,
+				83B4B78A225A14DD00632FB4 /* ViewController.swift */,
+				83B4B78C225A14DD00632FB4 /* Main.storyboard */,
+				83B4B791225A14DD00632FB4 /* LaunchScreen.storyboard */,
+				83B4B794225A14DD00632FB4 /* Info.plist */,
+			);
+			path = wagonadmin;
+			sourceTree = "<group>";
+		};
+		83B4B798225A151700632FB4 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				83B4B777225A146B00632FB4 /* Assets.xcassets */,
+			);
+			path = Shared;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -84,6 +124,23 @@
 			productReference = 83B4B76D225A146A00632FB4 /* wagon.app */;
 			productType = "com.apple.product-type.application";
 		};
+		83B4B785225A14DD00632FB4 /* wagonadmin */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 83B4B795225A14DD00632FB4 /* Build configuration list for PBXNativeTarget "wagonadmin" */;
+			buildPhases = (
+				83B4B782225A14DD00632FB4 /* Sources */,
+				83B4B783225A14DD00632FB4 /* Frameworks */,
+				83B4B784225A14DD00632FB4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = wagonadmin;
+			productName = wagonadmin;
+			productReference = 83B4B786225A14DD00632FB4 /* wagonadmin.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -95,6 +152,9 @@
 				ORGANIZATIONNAME = "Danila Ferents";
 				TargetAttributes = {
 					83B4B76C225A146A00632FB4 = {
+						CreatedOnToolsVersion = 10.2;
+					};
+					83B4B785225A14DD00632FB4 = {
 						CreatedOnToolsVersion = 10.2;
 					};
 				};
@@ -113,6 +173,7 @@
 			projectRoot = "";
 			targets = (
 				83B4B76C225A146A00632FB4 /* wagon */,
+				83B4B785225A14DD00632FB4 /* wagonadmin */,
 			);
 		};
 /* End PBXProject section */
@@ -128,6 +189,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		83B4B784225A14DD00632FB4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83B4B793225A14DD00632FB4 /* LaunchScreen.storyboard in Resources */,
+				83B4B799225A154200632FB4 /* Assets.xcassets in Resources */,
+				83B4B78E225A14DD00632FB4 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -137,6 +208,15 @@
 			files = (
 				83B4B773225A146A00632FB4 /* ViewController.swift in Sources */,
 				83B4B771225A146A00632FB4 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		83B4B782225A14DD00632FB4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83B4B78B225A14DD00632FB4 /* ViewController.swift in Sources */,
+				83B4B789225A14DD00632FB4 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -155,6 +235,22 @@
 			isa = PBXVariantGroup;
 			children = (
 				83B4B77A225A146B00632FB4 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		83B4B78C225A14DD00632FB4 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				83B4B78D225A14DD00632FB4 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		83B4B791225A14DD00632FB4 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				83B4B792225A14DD00632FB4 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -314,6 +410,42 @@
 			};
 			name = Release;
 		};
+		83B4B796225A14DD00632FB4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 384TS3V9HP;
+				INFOPLIST_FILE = wagonadmin/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = dan.wagonadmin;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		83B4B797225A14DD00632FB4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 384TS3V9HP;
+				INFOPLIST_FILE = wagonadmin/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = dan.wagonadmin;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -331,6 +463,15 @@
 			buildConfigurations = (
 				83B4B780225A146B00632FB4 /* Debug */,
 				83B4B781225A146B00632FB4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		83B4B795225A14DD00632FB4 /* Build configuration list for PBXNativeTarget "wagonadmin" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				83B4B796225A14DD00632FB4 /* Debug */,
+				83B4B797225A14DD00632FB4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
