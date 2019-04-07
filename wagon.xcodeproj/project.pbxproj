@@ -17,6 +17,7 @@
 		83B4B78E225A14DD00632FB4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83B4B78C225A14DD00632FB4 /* Main.storyboard */; };
 		83B4B793225A14DD00632FB4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83B4B791225A14DD00632FB4 /* LaunchScreen.storyboard */; };
 		83B4B799225A154200632FB4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83B4B777225A146B00632FB4 /* Assets.xcassets */; };
+		83B4B79D225A1A1400632FB4 /* LoginStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83B4B79C225A1A1400632FB4 /* LoginStoryboard.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		83B4B78D225A14DD00632FB4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		83B4B792225A14DD00632FB4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		83B4B794225A14DD00632FB4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		83B4B79C225A1A1400632FB4 /* LoginStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginStoryboard.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 				83B4B774225A146A00632FB4 /* Main.storyboard */,
 				83B4B779225A146B00632FB4 /* LaunchScreen.storyboard */,
 				83B4B77C225A146B00632FB4 /* Info.plist */,
+				83B4B79C225A1A1400632FB4 /* LoginStoryboard.storyboard */,
 			);
 			path = wagon;
 			sourceTree = "<group>";
@@ -186,6 +189,7 @@
 				83B4B77B225A146B00632FB4 /* LaunchScreen.storyboard in Resources */,
 				83B4B778225A146B00632FB4 /* Assets.xcassets in Resources */,
 				83B4B776225A146A00632FB4 /* Main.storyboard in Resources */,
+				83B4B79D225A1A1400632FB4 /* LoginStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
