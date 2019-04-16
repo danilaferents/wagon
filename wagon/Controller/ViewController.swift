@@ -13,9 +13,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    //redirect ViewController to LoginVC
     override func viewDidAppear(_ animated: Bool) {
-        let storyboard = UIStoryboard(name: "LoginStoryboard", bundle: nil)
-        let controller = storyboard.instantiateViewController(withIdentifier: "loginVC")
+        let storyboard = UIStoryboard(name: Storyboard.loginStoryboard, bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: StoryboardID.loginVC)
         present(controller, animated: true, completion: nil)
     }
 

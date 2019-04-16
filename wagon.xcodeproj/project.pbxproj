@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		839CB15E2265E0D300C17E2B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839CB15D2265E0D300C17E2B /* Constants.swift */; };
+		839CB1612266235900C17E2B /* RoundedViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839CB1602266235900C17E2B /* RoundedViews.swift */; };
 		83AEEEA5225F7F8300AD09BC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 83AEEEA4225F7F8300AD09BC /* GoogleService-Info.plist */; };
 		83AEEEA7225F837B00AD09BC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 83AEEEA6225F837B00AD09BC /* GoogleService-Info.plist */; };
 		83AEEEB1225F959200AD09BC /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AEEEB0225F959200AD09BC /* RegisterVC.swift */; };
@@ -31,6 +33,8 @@
 		28B3698362A2B628A845DFB5 /* Pods-wagon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wagon.release.xcconfig"; path = "Pods/Target Support Files/Pods-wagon/Pods-wagon.release.xcconfig"; sourceTree = "<group>"; };
 		3C2531441CC0669E507E4E13 /* Pods-wagonadmin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wagonadmin.release.xcconfig"; path = "Pods/Target Support Files/Pods-wagonadmin/Pods-wagonadmin.release.xcconfig"; sourceTree = "<group>"; };
 		41EA9B01C7840292F85D981E /* Pods_wagonadmin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_wagonadmin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		839CB15D2265E0D300C17E2B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		839CB1602266235900C17E2B /* RoundedViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedViews.swift; sourceTree = "<group>"; };
 		83AEEEA4225F7F8300AD09BC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		83AEEEA6225F837B00AD09BC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		83AEEEB0225F959200AD09BC /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
@@ -86,6 +90,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		839CB15F2266233A00C17E2B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				839CB1602266235900C17E2B /* RoundedViews.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		83AEEEA8225F949700AD09BC /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -125,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				83AEEEB52263807D00AD09BC /* Extensions.swift */,
+				839CB15D2265E0D300C17E2B /* Constants.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -179,6 +192,7 @@
 		83B4B798225A151700632FB4 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				839CB15F2266233A00C17E2B /* View */,
 				83AEEEB42263806B00AD09BC /* Utils */,
 				83B4B777225A146B00632FB4 /* Assets.xcassets */,
 			);
@@ -428,7 +442,9 @@
 				83AEEEB1225F959200AD09BC /* RegisterVC.swift in Sources */,
 				83B4B773225A146A00632FB4 /* ViewController.swift in Sources */,
 				83AEEEB3225F95A400AD09BC /* LoginVC.swift in Sources */,
+				839CB1612266235900C17E2B /* RoundedViews.swift in Sources */,
 				83B4B771225A146A00632FB4 /* AppDelegate.swift in Sources */,
+				839CB15E2265E0D300C17E2B /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

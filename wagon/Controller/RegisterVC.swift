@@ -41,11 +41,11 @@ class RegisterVC: UIViewController{
         }
        // Method is called to make checkmarks green when password matches
         if passwordTxt.text == confirmPassTxt.text {
-            passwordCheck.image = UIImage(named: "green_check")
-            confirmpasswordCheck.image = UIImage(named: "green_check")
+            passwordCheck.image = UIImage(named: ImageIdtf.greenCheck)
+            confirmpasswordCheck.image = UIImage(named: ImageIdtf.greenCheck)
         } else {
-            passwordCheck.image = UIImage(named: "red_check")
-            confirmpasswordCheck.image = UIImage(named: "red_check")
+            passwordCheck.image = UIImage(named: ImageIdtf.redCheck)
+            confirmpasswordCheck.image = UIImage(named: ImageIdtf.redCheck)
         }
     }
     
