@@ -46,7 +46,7 @@
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XkJ-AV-7R7">
                                         <rect key="frame" x="0.0" y="162.5" width="374" height="31"/>
@@ -54,6 +54,9 @@
                                         <state key="normal" title="Forgot password?">
                                             <color key="titleColor" red="0.83529411764705885" green="0.39215686274509803" blue="0.31372549019607843" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="forgotPasswordClicked:" destination="IGj-4w-4pC" eventType="touchUpInside" id="j5q-VR-4gL"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pI7-60-ZGx" customClass="RoundedButton">
                                         <rect key="frame" x="0.0" y="213.5" width="374" height="40"/>
@@ -65,6 +68,9 @@
                                         <state key="normal" title="Login">
                                             <color key="titleColor" red="0.95294117647058818" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="loginClicked:" destination="IGj-4w-4pC" eventType="touchUpInside" id="aQa-ML-3J3"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v8Y-Dp-nfm" customClass="RoundedButton">
                                         <rect key="frame" x="0.0" y="273.5" width="374" height="40"/>
@@ -90,6 +96,9 @@
                                         <state key="normal" title="Continue as guest">
                                             <color key="titleColor" red="0.95294117649999999" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="guestClicked:" destination="IGj-4w-4pC" eventType="touchUpInside" id="3zh-03-vFP"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -113,6 +122,12 @@
                         <viewLayoutGuide key="safeArea" id="xAw-eR-eTL"/>
                     </view>
                     <navigationItem key="navigationItem" id="Nqf-48-ma9"/>
+                    <connections>
+                        <outlet property="activityIndicator" destination="OcE-nh-KRY" id="6Va-sS-xeD"/>
+                        <outlet property="emailTxt" destination="aSr-tq-s0y" id="FKg-bV-BDM"/>
+                        <outlet property="loginBtn" destination="pI7-60-ZGx" id="4Qe-Hq-vMg"/>
+                        <outlet property="passwordTxt" destination="dZz-gY-jkQ" id="mzF-r5-m2X"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="34i-4S-iXa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -206,7 +221,7 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="pOj-L5-daq">
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="pOj-L5-daq">
                                 <rect key="frame" x="188.5" y="412.5" width="37" height="37"/>
                                 <color key="color" red="0.2274509804" green="0.2666666667" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                             </activityIndicatorView>

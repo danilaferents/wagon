@@ -25,3 +25,7 @@ struct AppColors {
     static let Red = #colorLiteral(red: 1, green: 0, blue: 0, alpha: 1)
     static let offWhite = #colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1)
 }
+struct Buttons{
+    static let Logout = "Logout"
+    static let Login = "Login"
+}
