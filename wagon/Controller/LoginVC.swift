@@ -22,7 +22,11 @@ class LoginVC: UIViewController {
         super.viewDidLoad()
     }
     @IBAction func forgotPasswordClicked(_ sender: Any) {
-        
+        let vc = ForgotPasswordVC()
+//        vc.modalTransitionStyle = .crossDissolve
+        vc.modalTransitionStyle = .flipHorizontal
+        vc.modalPresentationStyle = .overCurrentContext
+        present(vc, animated: true, completion: nil)
     }
     @IBAction func loginClicked(_ sender: Any) {
         
@@ -36,7 +40,7 @@ class LoginVC: UIViewController {
         activityIndicator.startAnimating()
         
         Auth.auth().signIn(withEmail: email, password: password) { (user, error) in if let error = error {
-                self.handleFireError(error: error)
+                Auth.auth().handleFireError(error: error, vc: self)
                 debugPrint(error.localizedDescription)
             self.activityIndicator.stopAnimating()
                 return

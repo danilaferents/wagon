@@ -15,6 +15,7 @@ struct Storyboard {
 }
 struct StoryboardID {
     static let loginVC = "loginVC"
+    static let forgotVC = "ForgotPasswordVC"
 }
 struct ImageIdtf {
     static let greenCheck = "green_check"
@@ -28,4 +29,7 @@ struct AppColors {
 struct Buttons{
     static let Logout = "Logout"
     static let Login = "Login"
+}
+struct Identifiers {
+    static let categoryCell = "CategoryCell"
 }

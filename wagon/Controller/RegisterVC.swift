@@ -74,7 +74,7 @@ class RegisterVC: UIViewController{
         authUser.linkAndRetrieveData(with: credential) { (result, error) in
             if let error = error {
                 debugPrint(error)
-                self.handleFireError(error: error)
+                Auth.auth().handleFireError(error: error, vc: self)
                 self.activIndicator.stopAnimating()
                 return
             }

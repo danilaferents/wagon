@@ -26,7 +26,7 @@ class RoundedShadowView: UIView {
         layer.shadowRadius = 3
     }
 }
-class RoundedInageView: UIImageView {
+class RoundedImageView: UIImageView {
     override func awakeFromNib() {
         super.awakeFromNib()
         layer.cornerRadius = 5
