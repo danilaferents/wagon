@@ -20,15 +20,19 @@ class HomeVC: UIViewController {
     //Variables
     var categories = [Category]()
     var selectedCat: Category!
+    var db : Firestore!
+    
     //If we do not have user logged in so we will sign in anonymous account
     override func viewDidLoad() {
         super.viewDidLoad()
+        db = Firestore.firestore()
         
-        let category = Category.init(name: "Nature", id: "fhj", imageUrl: "https://images.unsplash.com/photo-1540206395-68808572332f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1162&q=80", isAactive: true, timeStamp: Timestamp())
+        let category = Category.init(name: "Nature", id: "fhj", imageUrl: "https://images.unsplash.com/photo-1519667427574-36758f905780?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2700&q=80", isAactive: true, timeStamp: Timestamp())
         categories.append(category)
         
         collectionView.delegate = self
         collectionView.dataSource = self
+        
         //what type of view to display
         collectionView.register(UINib(nibName: Identifiers.categoryCell, bundle: nil), forCellWithReuseIdentifier: Identifiers.categoryCell)
         if Auth.auth().currentUser == nil {
@@ -39,6 +43,7 @@ class HomeVC: UIViewController {
                 }
             }
         }
+        fetchDoc()
     }
     //If we have user(not anonymous) then we need to modify button to "Logout"
     override func viewDidAppear(_ animated: Bool) {
@@ -50,6 +55,25 @@ class HomeVC: UIViewController {
         }
     }
     
+    //Fetch data from database
+    func fetchDoc() {
+        //Get Snap
+        let docRef = db.collection("Categories").document("kDSmR2gZQeGfKCBZdVYb")
+        docRef.getDocument { (snap, error) in
+            guard let data = snap?.data() else {return}
+            let name = data["name"] as? String ?? ""
+            let id = data["id"] as? String ?? ""
+            let imgUrl = data["imgUrl"] as? String ?? ""
+            let isActive = data["isActive"] as? Bool ?? true
+            let timeStamp = data["timeStamp"] as? Timestamp ?? Timestamp()
+            
+            //Make new Category
+            let newCategory = Category.init(name: name, id: id, imageUrl: imgUrl, isAactive: isActive, timeStamp: timeStamp)
+            self.categories.append(newCategory)
+            //Reload Data in CollectionView
+            self.collectionView.reloadData()
+        }
+    }
     @IBAction func loginOutClicked(_ sender: Any) {
         guard let user = Auth.auth().currentUser else {return}
         if user.isAnonymous {
