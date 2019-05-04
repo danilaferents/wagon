@@ -32,4 +32,8 @@ struct Buttons{
 }
 struct Identifiers {
     static let categoryCell = "CategoryCell"
+    static let prodcutCell = "ProductCell"
+}
+struct Segues {
+    static let toProducts = "toProductsVC"
 }

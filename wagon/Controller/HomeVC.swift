@@ -19,9 +19,14 @@ class HomeVC: UIViewController {
     
     //Variables
     var categories = [Category]()
+    var selectedCat: Category!
     //If we do not have user logged in so we will sign in anonymous account
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let category = Category.init(name: "Nature", id: "fhj", imageUrl: "https://images.unsplash.com/photo-1540206395-68808572332f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1162&q=80", isAactive: true, timeStamp: Timestamp())
+        categories.append(category)
+        
         collectionView.delegate = self
         collectionView.dataSource = self
         //what type of view to display
@@ -86,21 +91,35 @@ class HomeVC: UIViewController {
 }
 
 extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return categories.count
+    }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Identifiers.categoryCell, for: indexPath) as? CategoryCell {
             cell.configureCell(category: categories[indexPath.item])
+            return cell
         }
         return UICollectionViewCell()
     }
-    
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return categories.count
-    }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = view.frame.width
-        let cellWidth = (width - 50) / 2
+        let cellWidth = (width - 30) / 2
         let cellHieght = cellWidth * 1.5
         return CGSize(width: cellWidth, height: cellHieght)
+    }
+    //Perfrom Segue
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        selectedCat = categories[indexPath.item]
+        
+        performSegue(withIdentifier: Segues.toProducts, sender: self)
+    }
+    //to give selectedCategory to variable on the orher VC
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if  segue.identifier == Segues.toProducts {
+            if let dest = segue.destination as? ProductsVC {
+                dest.getCategory = selectedCat
+            }
+        }
     }
 }
