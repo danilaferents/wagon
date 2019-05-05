@@ -56,44 +56,64 @@ class HomeVC: UIViewController {
     }
     override func viewWillDisappear(_ animated: Bool) {
         listener.remove()
+        //Do not worry about new read because this will be in cache
+        categories.removeAll()
+        collectionView.reloadData()
     }
     
     
     func setCategoriesListener() {
-        listener = db.collection("Categories").addSnapshotListener({ (query, error) in
+        listener = db.collection("Categories").order(by: "timeStamp", descending: true).addSnapshotListener({ (query, error) in
             if let error = error {
                 debugPrint(error.localizedDescription)
                 return
             }
+            
             query?.documentChanges.forEach({ (change) in
-                
-                let data = change.document.data()
-                let category = Category.init(data: data)
-                
-                switch (change.type) {
-                case .added:
-                    self.onDocumentAdded(change: change, category: category)
-                case .modified:
-                    self.onDocumentModified()
-                case .removed:
-                    self.onDocumentRemoved()
+            
+            let data = change.document.data()
+            let category = Category.init(data: data)
+            
+            switch (change.type) {
+            case .added:
+                self.onDocumentAdded(change: change, category: category)
+            case .modified:
+                self.onDocumentModified(change: change, category: category)
+            case .removed:
+                self.onDocumentRemoved(change: change)
                 }
             })
         })
     }
     
     func onDocumentAdded(change: DocumentChange, category: Category) {
+        //We have only new index
         let newIndex = Int(change.newIndex)
         categories.insert(category, at: newIndex)
         collectionView.insertItems(at: [IndexPath(item: newIndex, section: 0)])
     }
     
-    func onDocumentModified()  {
-        
+    func onDocumentModified(change : DocumentChange, category: Category)  {
+//       Item changed, but remained in the same position
+        if change.oldIndex == change.newIndex {
+            let index = Int(change.oldIndex)
+            categories[index] = category
+             collectionView.reloadItems(at: [IndexPath(item: index, section: 0)])
+        } else {
+            //Item changed position
+            let oldIndex = Int(change.oldIndex)
+            let newIndex = Int(change.newIndex)
+            categories.remove(at: oldIndex)
+            categories.insert(category, at: newIndex)
+            
+            collectionView.moveItem(at: IndexPath(item: oldIndex, section: 0), to: IndexPath(item: newIndex, section: 0))
+        }
     }
     
-    func onDocumentRemoved() {
-        
+    func onDocumentRemoved(change: DocumentChange) {
+        //We have only old index
+        categories.remove(at: Int(change.oldIndex))
+        collectionView.deleteItems(at: [IndexPath(item: Int(change.oldIndex), section: 0)])
     }
     
     //Fetch Multiple documents
@@ -104,7 +124,7 @@ class HomeVC: UIViewController {
         listener = collectionReference.addSnapshotListener { (query, error) in
             guard let documents = query?.documents else {return}
             
-             query?.documentChanges.count
+//             query?.documentChanges.count
             
             self.categories.removeAll()
             for document in documents {
