@@ -21,15 +21,12 @@ class HomeVC: UIViewController {
     var categories = [Category]()
     var selectedCat: Category!
     var db : Firestore!
+    var listener : ListenerRegistration!
     
     //If we do not have user logged in so we will sign in anonymous account
     override func viewDidLoad() {
         super.viewDidLoad()
         db = Firestore.firestore()
-        
-        let category = Category.init(name: "Nature", id: "fhj", imageUrl: "https://images.unsplash.com/photo-1519667427574-36758f905780?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2700&q=80", isAactive: true, timeStamp: Timestamp())
-        categories.append(category)
-        
         collectionView.delegate = self
         collectionView.dataSource = self
         
@@ -43,10 +40,13 @@ class HomeVC: UIViewController {
                 }
             }
         }
-        fetchDoc()
+//        fetchCollection()
     }
+    
+    
     //If we have user(not anonymous) then we need to modify button to "Logout"
     override func viewDidAppear(_ animated: Bool) {
+        setCategoriesListener()
         if let user = Auth.auth().currentUser, !user.isAnonymous {
             //We are loggen in
             loginOutBtn.title = Buttons.Logout
@@ -54,26 +54,78 @@ class HomeVC: UIViewController {
             loginOutBtn.title = Buttons.Login
         }
     }
+    override func viewWillDisappear(_ animated: Bool) {
+        listener.remove()
+    }
     
-    //Fetch data from database
-    func fetchDoc() {
-        //Get Snap
-        let docRef = db.collection("Categories").document("kDSmR2gZQeGfKCBZdVYb")
-        docRef.getDocument { (snap, error) in
-            guard let data = snap?.data() else {return}
-            let name = data["name"] as? String ?? ""
-            let id = data["id"] as? String ?? ""
-            let imgUrl = data["imgUrl"] as? String ?? ""
-            let isActive = data["isActive"] as? Bool ?? true
-            let timeStamp = data["timeStamp"] as? Timestamp ?? Timestamp()
+    
+    func setCategoriesListener() {
+        listener = db.collection("Categories").addSnapshotListener({ (query, error) in
+            if let error = error {
+                debugPrint(error.localizedDescription)
+                return
+            }
+            query?.documentChanges.forEach({ (change) in
+                
+                let data = change.document.data()
+                let category = Category.init(data: data)
+                
+                switch (change.type) {
+                case .added:
+                    self.onDocumentAdded(change: change, category: category)
+                case .modified:
+                    self.onDocumentModified()
+                case .removed:
+                    self.onDocumentRemoved()
+                }
+            })
+        })
+    }
+    
+    func onDocumentAdded(change: DocumentChange, category: Category) {
+        let newIndex = Int(change.newIndex)
+        categories.insert(category, at: newIndex)
+        collectionView.insertItems(at: [IndexPath(item: newIndex, section: 0)])
+    }
+    
+    func onDocumentModified()  {
+        
+    }
+    
+    func onDocumentRemoved() {
+        
+    }
+    
+    //Fetch Multiple documents
+    func fetchCollection()
+    {
+        let collectionReference = db.collection("Categories")
+        
+        listener = collectionReference.addSnapshotListener { (query, error) in
+            guard let documents = query?.documents else {return}
             
-            //Make new Category
-            let newCategory = Category.init(name: name, id: id, imageUrl: imgUrl, isAactive: isActive, timeStamp: timeStamp)
-            self.categories.append(newCategory)
-            //Reload Data in CollectionView
+             query?.documentChanges.count
+            
+            self.categories.removeAll()
+            for document in documents {
+                let data = document.data()
+                let newCategory = Category.init(data: data)
+                self.categories.append(newCategory)
+            }
             self.collectionView.reloadData()
         }
+        
+//        collectionReference.getDocuments { (query, error) in
+//            guard let documents = query?.documents else {return}
+//            for document in documents {
+//                let data = document.data()
+//                let newCategory = Category.init(data: data)
+//                self.categories.append(newCategory)
+//            }
+//            self.collectionView.reloadData()
+//        }
     }
+    
     @IBAction func loginOutClicked(_ sender: Any) {
         guard let user = Auth.auth().currentUser else {return}
         if user.isAnonymous {
@@ -106,6 +158,8 @@ class HomeVC: UIViewController {
 //                presentLoginController()
 //            }
     }
+    
+    
     //redirect ViewController to LoginVC
     fileprivate func presentLoginController() {
         let storyboard = UIStoryboard(name: Storyboard.loginStoryboard, bundle: nil)
@@ -147,3 +201,30 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
         }
     }
 }
+
+
+//Remember code :)
+//Fetch data from database only for one doc
+//    func fetchDoc() {
+//        //Get Snap
+//        let docRef = db.collection("Categories").document("kDSmR2gZQeGfKCBZdVYb")
+//
+//        //Fetch in real time
+//        docRef.addSnapshotListener { (snap, error) in
+//            self.categories.removeAll()
+//            guard let data = snap?.data() else {return}
+//            //Make new Category
+//            let newCategory = Category.init(data: data)
+//            self.categories.append(newCategory)
+//            //Reload Data in CollectionView
+//            self.collectionView.reloadData()        }
+
+//        docRef.getDocument { (snap, error) in
+//            guard let data = snap?.data() else {return}
+//            //Make new Category
+//            let newCategory = Category.init(data: data)
+//            self.categories.append(newCategory)
+//            //Reload Data in CollectionView
+//            self.collectionView.reloadData()
+//        }
+//    }
