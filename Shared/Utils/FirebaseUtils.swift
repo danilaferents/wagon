@@ -53,3 +53,12 @@ extension AuthErrorCode {
         }
     }
 }
+
+extension Firestore {
+    var categories: Query {
+        return collection("Categories").order(by: "timeStamp", descending: true)
+    }
+    func products(category: String) -> Query {
+        return collection("Products").whereField("category", isEqualTo: category).order(by: "timeStamp", descending: true)
+    }
+}

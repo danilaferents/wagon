@@ -27,11 +27,29 @@ class HomeVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         db = Firestore.firestore()
+        
+        setUpCollectionView()
+        
+        setUpInitAnonUser()
+        
+//        setNavigationBar()
+//        fetchCollection()
+    }
+    
+    //Set up Navigation Bar right from file
+//    func setNavigationBar() {
+//        guard let font = UIFont(name: "Futura", size: 26) else {return}
+//        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: font]
+//    }
+    
+    func setUpCollectionView() {
         collectionView.delegate = self
         collectionView.dataSource = self
-        
         //what type of view to display
         collectionView.register(UINib(nibName: Identifiers.categoryCell, bundle: nil), forCellWithReuseIdentifier: Identifiers.categoryCell)
+    }
+    
+    func setUpInitAnonUser() {
         if Auth.auth().currentUser == nil {
             Auth.auth().signInAnonymously{(result, error) in
                 if let error = error {
@@ -40,9 +58,7 @@ class HomeVC: UIViewController {
                 }
             }
         }
-//        fetchCollection()
     }
-    
     
     //If we have user(not anonymous) then we need to modify button to "Logout"
     override func viewDidAppear(_ animated: Bool) {
@@ -63,7 +79,8 @@ class HomeVC: UIViewController {
     
     
     func setCategoriesListener() {
-        listener = db.collection("Categories").order(by: "timeStamp", descending: true).addSnapshotListener({ (query, error) in
+        //We extent firestore in FireBaseUtils
+        listener = db.categories.addSnapshotListener({ (query, error) in
             if let error = error {
                 debugPrint(error.localizedDescription)
                 return
@@ -86,37 +103,7 @@ class HomeVC: UIViewController {
         })
     }
     
-    func onDocumentAdded(change: DocumentChange, category: Category) {
-        //We have only new index
-        let newIndex = Int(change.newIndex)
-        categories.insert(category, at: newIndex)
-        collectionView.insertItems(at: [IndexPath(item: newIndex, section: 0)])
-    }
-    
-    func onDocumentModified(change : DocumentChange, category: Category)  {
-//       Item changed, but remained in the same position
-        if change.oldIndex == change.newIndex {
-            let index = Int(change.oldIndex)
-            categories[index] = category
-             collectionView.reloadItems(at: [IndexPath(item: index, section: 0)])
-        } else {
-            //Item changed position
-            let oldIndex = Int(change.oldIndex)
-            let newIndex = Int(change.newIndex)
-            categories.remove(at: oldIndex)
-            categories.insert(category, at: newIndex)
-            
-            collectionView.moveItem(at: IndexPath(item: oldIndex, section: 0), to: IndexPath(item: newIndex, section: 0))
-        }
-    }
-    
-    func onDocumentRemoved(change: DocumentChange) {
-        //We have only old index
-        categories.remove(at: Int(change.oldIndex))
-        collectionView.deleteItems(at: [IndexPath(item: Int(change.oldIndex), section: 0)])
-    }
-    
-    //Fetch Multiple documents
+    //Fetch Multiple documents --old Code
     func fetchCollection()
     {
         let collectionReference = db.collection("Categories")
@@ -189,6 +176,37 @@ class HomeVC: UIViewController {
 }
 
 extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
+    func onDocumentAdded(change: DocumentChange, category: Category) {
+        //We have only new index
+        let newIndex = Int(change.newIndex)
+        categories.insert(category, at: newIndex)
+        collectionView.insertItems(at: [IndexPath(item: newIndex, section: 0)])
+    }
+    
+    func onDocumentModified(change : DocumentChange, category: Category)  {
+        //       Item changed, but remained in the same position
+        if change.oldIndex == change.newIndex {
+            let index = Int(change.oldIndex)
+            categories[index] = category
+            collectionView.reloadItems(at: [IndexPath(item: index, section: 0)])
+        } else {
+            //Item changed position
+            let oldIndex = Int(change.oldIndex)
+            let newIndex = Int(change.newIndex)
+            categories.remove(at: oldIndex)
+            categories.insert(category, at: newIndex)
+            
+            collectionView.moveItem(at: IndexPath(item: oldIndex, section: 0), to: IndexPath(item: newIndex, section: 0))
+        }
+    }
+    
+    func onDocumentRemoved(change: DocumentChange) {
+        //We have only old index
+        categories.remove(at: Int(change.oldIndex))
+        collectionView.deleteItems(at: [IndexPath(item: Int(change.oldIndex), section: 0)])
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return categories.count
     }

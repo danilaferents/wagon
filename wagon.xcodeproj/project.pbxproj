@@ -43,6 +43,8 @@
 		83EE4BAF227BAE0A00904DD7 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83EE4BAC227BAE0A00904DD7 /* ProductCell.swift */; };
 		83EE4BB0227BAE0A00904DD7 /* ProductCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83EE4BAD227BAE0A00904DD7 /* ProductCell.xib */; };
 		83EE4BB1227BAE0A00904DD7 /* ProductCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83EE4BAD227BAE0A00904DD7 /* ProductCell.xib */; };
+		83EE4BB42281FA4900904DD7 /* ProductDetailVCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83EE4BB22281FA4900904DD7 /* ProductDetailVCViewController.swift */; };
+		83EE4BB52281FA4900904DD7 /* ProductDetailVCViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83EE4BB32281FA4900904DD7 /* ProductDetailVCViewController.xib */; };
 		8DB3B09AB887142848174E02 /* Pods_wagon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCFD669D3B04D665B1EE1E89 /* Pods_wagon.framework */; };
 		BF2EFEFD2729FF822D096FE9 /* Pods_wagonadmin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41EA9B01C7840292F85D981E /* Pods_wagonadmin.framework */; };
 /* End PBXBuildFile section */
@@ -82,6 +84,8 @@
 		83EE4BA6227BACAD00904DD7 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		83EE4BAC227BAE0A00904DD7 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
 		83EE4BAD227BAE0A00904DD7 /* ProductCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductCell.xib; sourceTree = "<group>"; };
+		83EE4BB22281FA4900904DD7 /* ProductDetailVCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailVCViewController.swift; sourceTree = "<group>"; };
+		83EE4BB32281FA4900904DD7 /* ProductDetailVCViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductDetailVCViewController.xib; sourceTree = "<group>"; };
 		A7544E9127438F57F7A7683D /* Pods-wagon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wagon.debug.xcconfig"; path = "Pods/Target Support Files/Pods-wagon/Pods-wagon.debug.xcconfig"; sourceTree = "<group>"; };
 		BCFD669D3B04D665B1EE1E89 /* Pods_wagon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_wagon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C36C6868C696D348626331FF /* Pods-wagonadmin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wagonadmin.debug.xcconfig"; path = "Pods/Target Support Files/Pods-wagonadmin/Pods-wagonadmin.debug.xcconfig"; sourceTree = "<group>"; };
@@ -121,8 +125,8 @@
 		8304F04F22703F1100C9B368 /* XIBs */ = {
 			isa = PBXGroup;
 			children = (
-				8304F05222703F7800C9B368 /* ForgotPasswordVC.swift */,
 				8304F05322703F7800C9B368 /* ForgotPasswordVC.xib */,
+				83EE4BB32281FA4900904DD7 /* ProductDetailVCViewController.xib */,
 			);
 			path = XIBs;
 			sourceTree = "<group>";
@@ -154,6 +158,8 @@
 				83AEEEB0225F959200AD09BC /* RegisterVC.swift */,
 				83AEEEB2225F95A400AD09BC /* LoginVC.swift */,
 				83EE4BA3227BAC0100904DD7 /* ProductsVC.swift */,
+				83EE4BB22281FA4900904DD7 /* ProductDetailVCViewController.swift */,
+				8304F05222703F7800C9B368 /* ForgotPasswordVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -352,6 +358,7 @@
 				83B4B776225A146A00632FB4 /* Main.storyboard in Resources */,
 				83B4B79D225A1A1400632FB4 /* LoginStoryboard.storyboard in Resources */,
 				8304F05522703F7800C9B368 /* ForgotPasswordVC.xib in Resources */,
+				83EE4BB52281FA4900904DD7 /* ProductDetailVCViewController.xib in Resources */,
 				83AEEEA5225F7F8300AD09BC /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -499,6 +506,7 @@
 				8304F0572271B45B00C9B368 /* FirebaseUtils.swift in Sources */,
 				83EE4BA4227BAC0100904DD7 /* ProductsVC.swift in Sources */,
 				8304F05A2275012A00C9B368 /* Category.swift in Sources */,
+				83EE4BB42281FA4900904DD7 /* ProductDetailVCViewController.swift in Sources */,
 				83AEEEB62263807D00AD09BC /* Extensions.swift in Sources */,
 				83EE4BAE227BAE0A00904DD7 /* ProductCell.swift in Sources */,
 				83AEEEB1225F959200AD09BC /* RegisterVC.swift in Sources */,
