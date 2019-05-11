@@ -20,6 +20,18 @@ struct Product {
     var timeStamp: Timestamp
     var stock: Int
     
+    
+    init(name: String, id: String, category: String, price: Double, description: String, imageUrl: String, timestamp: Timestamp = Timestamp(), stock: Int = 0) {
+        self.name = name
+        self.id = id
+        self.category = category
+        self.price = price
+        self.description = description
+        self.imageUrl = imageUrl
+        self.timeStamp = timestamp
+        self.stock = stock
+    }
+    
     init(data: [String: Any]) {
         name = data["name"] as? String ?? ""
         id = data["id"] as? String ?? ""
@@ -29,5 +41,20 @@ struct Product {
         imageUrl = data["imgUrl"] as? String ?? ""
         timeStamp = data["timeStamp"] as? Timestamp ?? Timestamp()
         stock = data["stock"] as? Int ?? Int(0)
+    }
+    
+    
+    static func modelToData(product: Product)-> [String: Any] {
+        let data = [
+            "category": product.category,
+            "id": product.id,
+            "imgUrl": product.imageUrl,
+            "name": product.name,
+            "price": product.price,
+            "productDescription": product.description,
+            "stock": product.stock,
+            "timeStamp": product.timeStamp
+            ] as [String : Any]
+        return data
     }
 }

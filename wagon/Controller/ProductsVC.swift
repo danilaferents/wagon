@@ -108,7 +108,7 @@ class ProductsVC: UIViewController {
             if change.oldIndex == change.newIndex {
                 let index = Int(change.oldIndex)
                 products[index] = product
-                tableView.reloadRows(at: [IndexPath(row: Int(change.oldIndex), section: 0)], with: .none)
+                tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .none)
             } else {
                 //Item changed position
                 let oldIndex = Int(change.oldIndex)
@@ -116,7 +116,7 @@ class ProductsVC: UIViewController {
                 products.remove(at: oldIndex)
                 products.insert(product, at: newIndex)
                 
-                tableView.moveRow(at: IndexPath(item: Int(change.oldIndex), section: 0), to: IndexPath(item: Int(change.newIndex), section: 0))
+                tableView.moveRow(at: IndexPath(item: oldIndex, section: 0), to: IndexPath(item: newIndex, section: 0))
             }
         }
         func onDocumentRemoved(change: DocumentChange) {

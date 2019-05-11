@@ -33,7 +33,11 @@ struct Buttons{
 struct Identifiers {
     static let categoryCell = "CategoryCell"
     static let prodcutCell = "ProductCell"
+    static let addToCat = "toAddCategory"
+    
 }
 struct Segues {
     static let toProducts = "toProductsVC"
+    static let toEditCategory = "toEditCategory"
+    static let toAddEditProduct = "toAddEditProduct"
 }

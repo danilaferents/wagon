@@ -33,10 +33,22 @@ class ProductCell: UITableViewCell {
     func configureCell(product: Product){
         productTtl.text = product.name
 //        productPrc.text = product.price.
+        
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        if let price = formatter.string(from: product.price as NSNumber) {
+            productPrc.text = price
+        }
+        
         //set Image
         if let url = URL(string: product.imageUrl) {
+//            let placeholder = UIImage(named: "Placeholder")
+//            productImg.kf.indicatorType = .activity
+//            let options: KingfisherOptionsInfo = [KingfisherOptionsInfoItem.transition(.fade(0.2))]
+//            productImg.kf.setImage(with: url, placeholder: placeholder, options: options)
             productImg.kf.setImage(with: url)
         }
+        
     }
     
     @IBAction func addtocardClicked(_ sender: Any) {
