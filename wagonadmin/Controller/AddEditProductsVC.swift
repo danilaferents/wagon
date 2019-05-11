@@ -56,10 +56,7 @@ class AddEditProductsVC: UIViewController {
             }
         }
     }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        productToEdit = nil
-    }
+
     @objc func imageTapped(_tap: UIGestureRecognizer) {
         launchImgPicker()
     }
