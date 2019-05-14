@@ -20,6 +20,9 @@ struct StoryboardID {
 struct ImageIdtf {
     static let greenCheck = "green_check"
     static let redCheck = "red_check"
+    static let filledStar = "filled_star"
+    static let emptyStar = "empty_star"
+    static let placeholder = "placeholder"
 }
 struct AppColors {
     static let Blue = #colorLiteral(red: 0.2914361954, green: 0.3395442367, blue: 0.4364506006, alpha: 1)
@@ -40,4 +43,5 @@ struct Segues {
     static let toProducts = "toProductsVC"
     static let toEditCategory = "toEditCategory"
     static let toAddEditProduct = "toAddEditProduct"
+    static let toFavourites = "toFavourites"
 }

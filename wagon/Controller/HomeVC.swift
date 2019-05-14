@@ -66,6 +66,9 @@ class HomeVC: UIViewController {
         if let user = Auth.auth().currentUser, !user.isAnonymous {
             //We are loggen in
             loginOutBtn.title = Buttons.Logout
+            if userService.userListener == nil {
+                userService.getCurrentUser()
+            }
         } else {
             loginOutBtn.title = Buttons.Login
         }
@@ -141,6 +144,7 @@ class HomeVC: UIViewController {
         } else {
             do {
                 try Auth.auth().signOut()
+                userService.logoutUser()
                 Auth.auth().signInAnonymously { (result, error) in
                     if let error = error {
                         debugPrint(error)
@@ -236,7 +240,15 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
             if let dest = segue.destination as? ProductsVC {
                 dest.getCategory = selectedCat
             }
+        } else if segue.identifier == Segues.toFavourites {
+            if let destination = segue.destination as? ProductsVC {
+                destination.showFavourites = true
+            }
         }
+    }
+    
+    @IBAction func  favClicked(_ sender: Any) {
+        performSegue(withIdentifier: Segues.toFavourites, sender: self)
     }
 }
 

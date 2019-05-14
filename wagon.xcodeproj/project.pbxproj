@@ -54,6 +54,8 @@
 		83EE4BBA2284D9F400904DD7 /* ProductDetailVCViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83EE4BB32281FA4900904DD7 /* ProductDetailVCViewController.xib */; };
 		83EE4BBB2284DA0F00904DD7 /* ProductDetailVCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83EE4BB22281FA4900904DD7 /* ProductDetailVCViewController.swift */; };
 		83EE4BBD2284E1BC00904DD7 /* AddToCategoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83EE4BBC2284E1BC00904DD7 /* AddToCategoryVC.swift */; };
+		83FC662B2288D86900A46740 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FC662A2288D86900A46740 /* User.swift */; };
+		83FC662E22896DE500A46740 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FC662D22896DE500A46740 /* UserService.swift */; };
 		8DB3B09AB887142848174E02 /* Pods_wagon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCFD669D3B04D665B1EE1E89 /* Pods_wagon.framework */; };
 		BF2EFEFD2729FF822D096FE9 /* Pods_wagonadmin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41EA9B01C7840292F85D981E /* Pods_wagonadmin.framework */; };
 /* End PBXBuildFile section */
@@ -98,6 +100,8 @@
 		83EE4BB22281FA4900904DD7 /* ProductDetailVCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailVCViewController.swift; sourceTree = "<group>"; };
 		83EE4BB32281FA4900904DD7 /* ProductDetailVCViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductDetailVCViewController.xib; sourceTree = "<group>"; };
 		83EE4BBC2284E1BC00904DD7 /* AddToCategoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToCategoryVC.swift; sourceTree = "<group>"; };
+		83FC662A2288D86900A46740 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		83FC662D22896DE500A46740 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		A7544E9127438F57F7A7683D /* Pods-wagon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wagon.debug.xcconfig"; path = "Pods/Target Support Files/Pods-wagon/Pods-wagon.debug.xcconfig"; sourceTree = "<group>"; };
 		BCFD669D3B04D665B1EE1E89 /* Pods_wagon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_wagon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C36C6868C696D348626331FF /* Pods-wagonadmin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wagonadmin.debug.xcconfig"; path = "Pods/Target Support Files/Pods-wagonadmin/Pods-wagonadmin.debug.xcconfig"; sourceTree = "<group>"; };
@@ -188,6 +192,7 @@
 			children = (
 				8304F0592275012A00C9B368 /* Category.swift */,
 				83EE4BA6227BACAD00904DD7 /* Product.swift */,
+				83FC662A2288D86900A46740 /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -236,6 +241,7 @@
 		83B4B76F225A146A00632FB4 /* wagon */ = {
 			isa = PBXGroup;
 			children = (
+				83FC662C22896DCE00A46740 /* Services */,
 				8304F04F22703F1100C9B368 /* XIBs */,
 				83AEEEAB225F94D600AD09BC /* Storyboards */,
 				83AEEEA9225F949F00AD09BC /* View */,
@@ -288,6 +294,14 @@
 				83B4B78C225A14DD00632FB4 /* Main.storyboard */,
 			);
 			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		83FC662C22896DCE00A46740 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				83FC662D22896DE500A46740 /* UserService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		8E135B15C95F062F0DF43FC4 /* Frameworks */ = {
@@ -538,7 +552,9 @@
 				8304F0572271B45B00C9B368 /* FirebaseUtils.swift in Sources */,
 				83EE4BA4227BAC0100904DD7 /* ProductsVC.swift in Sources */,
 				8304F05A2275012A00C9B368 /* Category.swift in Sources */,
+				83FC662B2288D86900A46740 /* User.swift in Sources */,
 				83EE4BB42281FA4900904DD7 /* ProductDetailVCViewController.swift in Sources */,
+				83FC662E22896DE500A46740 /* UserService.swift in Sources */,
 				83AEEEB62263807D00AD09BC /* Extensions.swift in Sources */,
 				83EE4BAE227BAE0A00904DD7 /* ProductCell.swift in Sources */,
 				83AEEEB1225F959200AD09BC /* RegisterVC.swift in Sources */,

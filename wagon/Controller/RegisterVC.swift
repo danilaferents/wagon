@@ -68,20 +68,34 @@ class RegisterVC: UIViewController{
             self.activIndicator.stopAnimating()
             return
         }
-        //variable to use in authentification
-        let credential = EmailAuthProvider.credential(withEmail: email, link: password)
-        //universal process to create new user 
-        authUser.linkAndRetrieveData(with: credential) { (result, error) in
+        
+        Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
             if let error = error {
                 debugPrint(error)
                 Auth.auth().handleFireError(error: error, vc: self)
                 self.activIndicator.stopAnimating()
                 return
             }
-            self.activIndicator.stopAnimating()
-            //to leave view controller and get back 
-            self.dismiss(animated: true, completion: nil)
+            
+            guard let fireUser = result?.user else { return}
+            let wagUser = User.init(id: fireUser.uid, email: email, username: username, stripeId: "")
+            self.createFireStorUser(user: wagUser)
         }
+            
+//        //variable to use in authentification
+//        let credential = EmailAuthProvider.credential(withEmail: email, link: password)
+//        //universal process to create new user
+//        authUser.linkAndRetrieveData(with: credential) { (result, error) in
+//            if let error = error {
+//                debugPrint(error)
+//                Auth.auth().handleFireError(error: error, vc: self)
+//                self.activIndicator.stopAnimating()
+//                return
+//            }
+//            self.activIndicator.stopAnimating()
+//            //to leave view controller and get back
+//            self.dismiss(animated: true, completion: nil)
+//        }
         
         //First method to crate user
 //        Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
@@ -93,5 +107,22 @@ class RegisterVC: UIViewController{
 //            self.activIndicator.stopAnimating()
 //            self.dismiss(animated: true, completion: nil)
 //        }
+    }
+    
+    func createFireStorUser (user: User) {
+        let docRef = Firestore.firestore().collection("Users").document(user.id)
+        
+        var modeData = User.modelToData(user: user)
+        
+        docRef.setData(modeData) { (error) in
+            if let error = error {
+                debugPrint(error)
+               Auth.auth().handleFireError(error: error, vc: self)
+            } else {
+                self.dismiss(animated: true, completion: nil)
+            }
+            self.activIndicator.stopAnimating()
+        }
+        
     }
 }
