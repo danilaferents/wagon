@@ -9,7 +9,8 @@
 import UIKit
 import FirebaseFirestore
 
-class ProductsVC: UIViewController {
+class ProductsVC: UIViewController, ProductCellDelegate {
+    
     //Outlets
     @IBOutlet weak var tableView: UITableView!
     
@@ -18,6 +19,8 @@ class ProductsVC: UIViewController {
     var getCategory: Category!
     var db : Firestore!
     var listener : ListenerRegistration!
+    var showFavourites = false
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,8 +46,16 @@ class ProductsVC: UIViewController {
     
     func setProductsListener() {
         
+        var ref: Query!
+        
+        if showFavourites {
+            ref = db.collection("Users").document(userService.user.id).collection("Favourites")
+        } else {
+            ref = db.products(category: getCategory.id)
+        }
+        
         //whereField make search by field category(equal to getCategory which we get from segue)
-        listener = db.products(category: getCategory.id).addSnapshotListener({ (query, error ) in
+        listener = ref.addSnapshotListener({ (query, error ) in
             if let error = error {
                 debugPrint(error)
                 return
@@ -65,6 +76,14 @@ class ProductsVC: UIViewController {
         })
     }
     
+    //Function to conform protocol
+    func productFavourited(product: Product) {
+        userService.favouriteSelected(product: product)
+        guard let index = products.firstIndex(of: product) else {return}
+        //To Call Configure Cell in cellfoRowat
+        tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
+    }
+    
 }
 
 
@@ -76,7 +95,7 @@ class ProductsVC: UIViewController {
     //Get Cell from Table
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: Identifiers.prodcutCell, for: indexPath) as? ProductCell{
-            cell.configureCell(product: products[indexPath.row])
+            cell.configureCell(product: products[indexPath.row], delegate: self)
             return cell;
         }
         return UITableViewCell()

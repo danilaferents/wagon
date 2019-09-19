@@ -10,6 +10,10 @@ import UIKit
 //for imageUrl
 import Kingfisher
 
+protocol ProductCellDelegate : class {
+    func productFavourited(product: Product)
+}
+
 class ProductCell: UITableViewCell {
     //Outlets
     @IBOutlet weak var productImg: RoundedImageView!
@@ -18,6 +22,8 @@ class ProductCell: UITableViewCell {
     @IBOutlet weak var productBtn: RoundedButton!
     @IBOutlet weak var favBtn: UIButton!
     
+    weak var delegate : ProductCellDelegate?
+    private var product: Product!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -30,9 +36,13 @@ class ProductCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    func configureCell(product: Product){
+    func configureCell(product: Product, delegate: ProductCellDelegate){
+        //Set  delegates
+        self.product = product
+        self.delegate = delegate
+        
         productTtl.text = product.name
-//        productPrc.text = product.price.
+        productPrc.text = String(product.price)
         
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency
@@ -42,18 +52,27 @@ class ProductCell: UITableViewCell {
         
         //set Image
         if let url = URL(string: product.imageUrl) {
-//            let placeholder = UIImage(named: "Placeholder")
-//            productImg.kf.indicatorType = .activity
-//            let options: KingfisherOptionsInfo = [KingfisherOptionsInfoItem.transition(.fade(0.2))]
-//            productImg.kf.setImage(with: url, placeholder: placeholder, options: options)
-            productImg.kf.setImage(with: url)
+            let placeholder = UIImage(named: ImageIdtf.placeholder)
+            productImg.kf.indicatorType = .activity
+            let options: KingfisherOptionsInfo = [KingfisherOptionsInfoItem.transition(.fade(0.2))]
+            productImg.kf.setImage(with: url, placeholder: placeholder, options: options)
+//            productImg.kf.setImage(with: url)
         }
-        
+        //Compare favourites and selectedProduct to be favourite
+        if userService.favourites.contains(product) {
+            //change image from empty star to full star
+            favBtn.setImage(UIImage(named: ImageIdtf.filledStar), for: .normal)
+        } else {
+            //make image from empty star
+            favBtn.setImage(UIImage(named: ImageIdtf.emptyStar), for: .normal)
+        }
     }
     
     @IBAction func addtocardClicked(_ sender: Any) {
     }
     @IBAction func favouriteClicked(_ sender: Any) {
+        //delegate saving favourite to Products
+        delegate?.productFavourited(product: product)
     }
     
 }

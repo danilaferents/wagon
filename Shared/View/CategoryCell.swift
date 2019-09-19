@@ -20,6 +20,7 @@ class CategoryCell: UICollectionViewCell {
         categoryImg.layer.cornerRadius = 5
     }
     
+    //load image and text label
     func configureCell (category: Category)  {
         categoryLbl.text = category.name
         if let url = URL(string: category.imageUrl) {
