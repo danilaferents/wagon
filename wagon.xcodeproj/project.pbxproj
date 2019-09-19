@@ -17,6 +17,9 @@
 		8304F05F2275027200C9B368 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8304F05C2275027200C9B368 /* CategoryCell.swift */; };
 		8304F0602275027200C9B368 /* CategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8304F05D2275027200C9B368 /* CategoryCell.xib */; };
 		8304F0612275027200C9B368 /* CategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8304F05D2275027200C9B368 /* CategoryCell.xib */; };
+		8375802D23340C9300509DB4 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FC662D22896DE500A46740 /* UserService.swift */; };
+		83758030233410C500509DB4 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FC662D22896DE500A46740 /* UserService.swift */; };
+		83758031233410CD00509DB4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FC662A2288D86900A46740 /* User.swift */; };
 		839CB15E2265E0D300C17E2B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839CB15D2265E0D300C17E2B /* Constants.swift */; };
 		839CB1612266235900C17E2B /* RoundedViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839CB1602266235900C17E2B /* RoundedViews.swift */; };
 		83AEEEA5225F7F8300AD09BC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 83AEEEA4225F7F8300AD09BC /* GoogleService-Info.plist */; };
@@ -55,7 +58,6 @@
 		83EE4BBB2284DA0F00904DD7 /* ProductDetailVCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83EE4BB22281FA4900904DD7 /* ProductDetailVCViewController.swift */; };
 		83EE4BBD2284E1BC00904DD7 /* AddToCategoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83EE4BBC2284E1BC00904DD7 /* AddToCategoryVC.swift */; };
 		83FC662B2288D86900A46740 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FC662A2288D86900A46740 /* User.swift */; };
-		83FC662E22896DE500A46740 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FC662D22896DE500A46740 /* UserService.swift */; };
 		8DB3B09AB887142848174E02 /* Pods_wagon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCFD669D3B04D665B1EE1E89 /* Pods_wagon.framework */; };
 		BF2EFEFD2729FF822D096FE9 /* Pods_wagonadmin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41EA9B01C7840292F85D981E /* Pods_wagonadmin.framework */; };
 /* End PBXBuildFile section */
@@ -554,7 +556,7 @@
 				8304F05A2275012A00C9B368 /* Category.swift in Sources */,
 				83FC662B2288D86900A46740 /* User.swift in Sources */,
 				83EE4BB42281FA4900904DD7 /* ProductDetailVCViewController.swift in Sources */,
-				83FC662E22896DE500A46740 /* UserService.swift in Sources */,
+				8375802D23340C9300509DB4 /* UserService.swift in Sources */,
 				83AEEEB62263807D00AD09BC /* Extensions.swift in Sources */,
 				83EE4BAE227BAE0A00904DD7 /* ProductCell.swift in Sources */,
 				83AEEEB1225F959200AD09BC /* RegisterVC.swift in Sources */,
@@ -578,6 +580,7 @@
 				83EE4BBB2284DA0F00904DD7 /* ProductDetailVCViewController.swift in Sources */,
 				83B4B78B225A14DD00632FB4 /* AdminHomeVC.swift in Sources */,
 				83EE4BB62284D8CA00904DD7 /* HomeVC.swift in Sources */,
+				83758030233410C500509DB4 /* UserService.swift in Sources */,
 				83B4B789225A14DD00632FB4 /* AppDelegate.swift in Sources */,
 				83B4EA6D228646C1009517EA /* AdminProductsVC.swift in Sources */,
 				8304F05B2275012A00C9B368 /* Category.swift in Sources */,
@@ -585,6 +588,7 @@
 				83EE4BBD2284E1BC00904DD7 /* AddToCategoryVC.swift in Sources */,
 				8304F05F2275027200C9B368 /* CategoryCell.swift in Sources */,
 				83EE4BB82284D9C500904DD7 /* Extensions.swift in Sources */,
+				83758031233410CD00509DB4 /* User.swift in Sources */,
 				83EE4BA8227BACAD00904DD7 /* Product.swift in Sources */,
 				83B4EA6F22864A86009517EA /* AddEditProductsVC.swift in Sources */,
 				83EE4BB92284D9C800904DD7 /* Constants.swift in Sources */,

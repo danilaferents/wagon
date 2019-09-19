@@ -37,13 +37,12 @@ class ProductCell: UITableViewCell {
         // Configure the view for the selected state
     }
     func configureCell(product: Product, delegate: ProductCellDelegate){
-        
+        //Set  delegates
         self.product = product
-        //Set  delegate 
         self.delegate = delegate
         
         productTtl.text = product.name
-//        productPrc.text = product.price.
+        productPrc.text = String(product.price)
         
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency
@@ -61,8 +60,10 @@ class ProductCell: UITableViewCell {
         }
         //Compare favourites and selectedProduct to be favourite
         if userService.favourites.contains(product) {
+            //change image from empty star to full star
             favBtn.setImage(UIImage(named: ImageIdtf.filledStar), for: .normal)
         } else {
+            //make image from empty star
             favBtn.setImage(UIImage(named: ImageIdtf.emptyStar), for: .normal)
         }
     }

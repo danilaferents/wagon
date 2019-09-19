@@ -75,6 +75,8 @@ class ProductsVC: UIViewController, ProductCellDelegate {
             })
         })
     }
+    
+    //Function to conform protocol
     func productFavourited(product: Product) {
         userService.favouriteSelected(product: product)
         guard let index = products.firstIndex(of: product) else {return}

@@ -91,20 +91,20 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="808"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YlO-LI-g4g">
-                                <rect key="frame" x="2" y="88" width="410" height="808"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="YlO-LI-g4g" firstAttribute="top" secondItem="Nc9-EA-7dO" secondAttribute="top" id="8Mt-Dt-OxK"/>
                             <constraint firstItem="Kg9-fi-ySH" firstAttribute="top" secondItem="Nc9-EA-7dO" secondAttribute="top" id="8ti-xw-bT7"/>
-                            <constraint firstItem="YlO-LI-g4g" firstAttribute="leading" secondItem="Nc9-EA-7dO" secondAttribute="leading" constant="2" id="DP3-MW-gJT"/>
-                            <constraint firstAttribute="bottom" secondItem="YlO-LI-g4g" secondAttribute="bottom" id="I4z-n6-YOe"/>
+                            <constraint firstItem="YlO-LI-g4g" firstAttribute="top" secondItem="Ve5-V3-HYV" secondAttribute="top" id="90N-cb-ODF"/>
+                            <constraint firstItem="YlO-LI-g4g" firstAttribute="trailing" secondItem="Nc9-EA-7dO" secondAttribute="trailing" id="Cqp-H7-ec9"/>
+                            <constraint firstItem="Nc9-EA-7dO" firstAttribute="bottom" secondItem="YlO-LI-g4g" secondAttribute="bottom" id="FoE-6n-VdW"/>
+                            <constraint firstItem="YlO-LI-g4g" firstAttribute="leading" secondItem="Nc9-EA-7dO" secondAttribute="leading" id="MDN-TT-c2Z"/>
                             <constraint firstAttribute="bottom" secondItem="Kg9-fi-ySH" secondAttribute="bottom" id="Pdx-Ie-whd"/>
                             <constraint firstItem="Kg9-fi-ySH" firstAttribute="leading" secondItem="Ve5-V3-HYV" secondAttribute="leading" id="Vk7-8c-d9X"/>
                             <constraint firstAttribute="trailing" secondItem="Kg9-fi-ySH" secondAttribute="trailing" id="mWB-Fz-Sm9"/>
-                            <constraint firstItem="Nc9-EA-7dO" firstAttribute="trailing" secondItem="YlO-LI-g4g" secondAttribute="trailing" constant="2" id="vDg-yn-yeh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Nc9-EA-7dO"/>
                     </view>

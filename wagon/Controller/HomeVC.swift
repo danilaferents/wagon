@@ -32,15 +32,15 @@ class HomeVC: UIViewController {
         
         setUpInitAnonUser()
         
-//        setNavigationBar()
-//        fetchCollection()
+        //        setNavigationBar()
+        //        fetchCollection()
     }
     
     //Set up Navigation Bar right from file
-//    func setNavigationBar() {
-//        guard let font = UIFont(name: "Futura", size: 26) else {return}
-//        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: font]
-//    }
+    //    func setNavigationBar() {
+    //        guard let font = UIFont(name: "Futura", size: 26) else {return}
+    //        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: font]
+    //    }
     
     func setUpCollectionView() {
         collectionView.delegate = self
@@ -90,17 +90,17 @@ class HomeVC: UIViewController {
             }
             
             query?.documentChanges.forEach({ (change) in
-            
-            let data = change.document.data()
-            let category = Category.init(data: data)
-            
-            switch (change.type) {
-            case .added:
-                self.onDocumentAdded(change: change, category: category)
-            case .modified:
-                self.onDocumentModified(change: change, category: category)
-            case .removed:
-                self.onDocumentRemoved(change: change)
+                
+                let data = change.document.data()
+                let category = Category.init(data: data)
+                
+                switch (change.type) {
+                case .added:
+                    self.onDocumentAdded(change: change, category: category)
+                case .modified:
+                    self.onDocumentModified(change: change, category: category)
+                case .removed:
+                    self.onDocumentRemoved(change: change)
                 }
             })
         })
@@ -114,7 +114,7 @@ class HomeVC: UIViewController {
         listener = collectionReference.addSnapshotListener { (query, error) in
             guard let documents = query?.documents else {return}
             
-//             query?.documentChanges.count
+            //             query?.documentChanges.count
             
             self.categories.removeAll()
             for document in documents {
@@ -125,15 +125,15 @@ class HomeVC: UIViewController {
             self.collectionView.reloadData()
         }
         
-//        collectionReference.getDocuments { (query, error) in
-//            guard let documents = query?.documents else {return}
-//            for document in documents {
-//                let data = document.data()
-//                let newCategory = Category.init(data: data)
-//                self.categories.append(newCategory)
-//            }
-//            self.collectionView.reloadData()
-//        }
+        //        collectionReference.getDocuments { (query, error) in
+        //            guard let documents = query?.documents else {return}
+        //            for document in documents {
+        //                let data = document.data()
+        //                let newCategory = Category.init(data: data)
+        //                self.categories.append(newCategory)
+        //            }
+        //            self.collectionView.reloadData()
+        //        }
     }
     
     @IBAction func loginOutClicked(_ sender: Any) {
@@ -157,22 +157,22 @@ class HomeVC: UIViewController {
                 Auth.auth().handleFireError(error: error, vc: self)
             }
         }
-//        if let _ = Auth.auth().currentUser {
-//            //We are loggen in
-//            do {
-////                try Auth.auth().signOut()
-//                presentLoginController()
-//            } catch {
-//                debugPrint(error.localizedDescription)
-//            }
-//        } else {
-//                presentLoginController()
-//            }
+        //        if let _ = Auth.auth().currentUser {
+        //            //We are loggen in
+        //            do {
+        ////                try Auth.auth().signOut()
+        //                presentLoginController()
+        //            } catch {
+        //                debugPrint(error.localizedDescription)
+        //            }
+        //        } else {
+        //                presentLoginController()
+        //            }
     }
     
     
     //redirect ViewController to LoginVC
-    fileprivate func presentLoginController() {
+    func presentLoginController() {
         let storyboard = UIStoryboard(name: Storyboard.loginStoryboard, bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: StoryboardID.loginVC)
         present(controller, animated: true, completion: nil)
@@ -214,7 +214,7 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return categories.count
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Identifiers.categoryCell, for: indexPath) as? CategoryCell {
             cell.configureCell(category: categories[indexPath.item])
