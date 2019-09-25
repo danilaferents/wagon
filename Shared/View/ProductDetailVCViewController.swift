@@ -49,7 +49,7 @@ class ProductDetailVCViewController: UIViewController {
     
     @IBAction func addClicked(_ sender: Any) {
         //Add product to card
-        
+        StripeCart.addItemToCart(item: product)
         dismiss(animated: true, completion: nil)
     }
     @IBAction func keepClicked(_ sender: Any) {

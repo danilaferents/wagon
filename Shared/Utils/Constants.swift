@@ -37,6 +37,7 @@ struct Identifiers {
     static let categoryCell = "CategoryCell"
     static let prodcutCell = "ProductCell"
     static let addToCat = "toAddCategory"
+    static let trashCell = "trashproductCell"
     
 }
 struct Segues {
