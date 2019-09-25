@@ -48,7 +48,7 @@ extension CheckOutVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: Identifiers.trashCell, for: indexPath) as? CheckOutCell {
-            
+
             let product = StripeCart.cartItems[indexPath.row]
             cell.configureCell(product: product)
                 return cell
@@ -56,6 +56,9 @@ extension CheckOutVC: UITableViewDelegate, UITableViewDataSource {
         return UITableViewCell()
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
+    }
     
 }
 

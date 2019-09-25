@@ -147,7 +147,7 @@
                                     <action selector="orderBtnClicked:" destination="vFr-cp-lPG" eventType="touchUpInside" id="SL5-dP-GXU"/>
                                 </connections>
                             </button>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="DNo-ig-MgW">
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="DNo-ig-MgW">
                                 <rect key="frame" x="188.5" y="759" width="37" height="37"/>
                                 <color key="color" red="0.39380136129999999" green="0.43339109419999999" blue="0.51765877010000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </activityIndicatorView>
@@ -319,7 +319,7 @@
                         <outlet property="shippingLbl" destination="fX8-5J-ygb" id="hFe-st-1e8"/>
                         <outlet property="shippingMethodBtn" destination="asU-Ck-Adc" id="53E-aZ-Nkp"/>
                         <outlet property="subtotalLbl" destination="Hvq-2W-GOq" id="xdo-mG-yPB"/>
-                        <outlet property="tableView" destination="iHz-00-rqh" id="Q2X-SS-WUJ"/>
+                        <outlet property="tableView" destination="iHz-00-rqh" id="f42-QY-oLK"/>
                         <outlet property="totalLbl" destination="QXO-D4-vcC" id="MdJ-dF-bCc"/>
                     </connections>
                 </viewController>

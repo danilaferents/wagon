@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CartItemCell" rowHeight="108" id="KGk-i7-Jjw" customClass="CartItemCell" customModule="wagon" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="442" height="108"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="442" height="108"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ktF-kl-8bP" customClass="RoundedShadowView" customModule="wagon" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="442" height="108"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="aerial_1" translatesAutoresizingMaskIntoConstraints="NO" id="rYe-6Y-5T9" customClass="RoundedImageView" customModule="wagon" customModuleProvider="target">
+                                <rect key="frame" x="6" y="8" width="100" height="92"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="rYe-6Y-5T9" secondAttribute="height" multiplier="1:1" constant="8" id="kWT-dk-IJw"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Product Titile $99.99" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ea-HK-KCJ">
+                                <rect key="frame" x="126" y="42.5" width="161.5" height="23"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                <color key="textColor" red="0.39380136129999999" green="0.43339109419999999" blue="0.51765877010000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iuL-bV-DQy">
+                                <rect key="frame" x="360" y="39" width="82" height="30"/>
+                                <state key="normal" title="Button" image="red_trash"/>
+                                <connections>
+                                    <action selector="removeBtnClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="nyp-g7-1Ne"/>
+                                    <action selector="trashBtn:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="FDt-rR-guv"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="rYe-6Y-5T9" secondAttribute="bottom" constant="8" id="2PJ-Fo-T05"/>
+                            <constraint firstAttribute="trailing" secondItem="iuL-bV-DQy" secondAttribute="trailing" id="JFf-i2-UbI"/>
+                            <constraint firstItem="rYe-6Y-5T9" firstAttribute="leading" secondItem="ktF-kl-8bP" secondAttribute="leading" constant="6" id="Q5D-U5-9Lm"/>
+                            <constraint firstItem="7ea-HK-KCJ" firstAttribute="leading" secondItem="rYe-6Y-5T9" secondAttribute="trailing" constant="20" id="QND-03-pDv"/>
+                            <constraint firstItem="rYe-6Y-5T9" firstAttribute="leading" secondItem="ktF-kl-8bP" secondAttribute="leading" constant="6" id="Sd1-cs-ZUq"/>
+                            <constraint firstItem="rYe-6Y-5T9" firstAttribute="top" secondItem="ktF-kl-8bP" secondAttribute="top" constant="8" id="c6I-Az-XBM"/>
+                            <constraint firstItem="iuL-bV-DQy" firstAttribute="centerY" secondItem="ktF-kl-8bP" secondAttribute="centerY" id="hES-5a-s88"/>
+                            <constraint firstItem="7ea-HK-KCJ" firstAttribute="centerY" secondItem="ktF-kl-8bP" secondAttribute="centerY" id="zrD-B6-6O1"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="ktF-kl-8bP" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="JtF-RW-TX5"/>
+                    <constraint firstAttribute="bottom" secondItem="ktF-kl-8bP" secondAttribute="bottom" id="dHW-vn-m6G"/>
+                    <constraint firstAttribute="trailing" secondItem="ktF-kl-8bP" secondAttribute="trailing" id="rsP-my-3v3"/>
+                    <constraint firstItem="ktF-kl-8bP" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="xpM-Mf-fkf"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="imageOfItem" destination="rYe-6Y-5T9" id="yf4-4T-WKA"/>
+                <outlet property="nameProductLbl" destination="7ea-HK-KCJ" id="t4b-0D-dOE"/>
+            </connections>
+            <point key="canvasLocation" x="226.08695652173915" y="119.86607142857142"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="aerial_1" width="1000" height="1333"/>
+        <image name="red_trash" width="28" height="30"/>
+    </resources>
+</document>
