@@ -58,6 +58,11 @@
 		83EE4BBB2284DA0F00904DD7 /* ProductDetailVCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83EE4BB22281FA4900904DD7 /* ProductDetailVCViewController.swift */; };
 		83EE4BBD2284E1BC00904DD7 /* AddToCategoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83EE4BBC2284E1BC00904DD7 /* AddToCategoryVC.swift */; };
 		83FC662B2288D86900A46740 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FC662A2288D86900A46740 /* User.swift */; };
+		83FFBC11233B81AA008AE0C6 /* CheckOutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FFBC10233B81AA008AE0C6 /* CheckOutVC.swift */; };
+		83FFBC14233B9141008AE0C6 /* CheckOutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FFBC12233B9141008AE0C6 /* CheckOutCell.swift */; };
+		83FFBC18233BD335008AE0C6 /* StripeCart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FFBC17233BD335008AE0C6 /* StripeCart.swift */; };
+		83FFBC1A233BE277008AE0C6 /* CheckOutCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83FFBC13233B9141008AE0C6 /* CheckOutCell.xib */; };
+		83FFBC1B233BE497008AE0C6 /* CheckOutCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83FFBC13233B9141008AE0C6 /* CheckOutCell.xib */; };
 		8DB3B09AB887142848174E02 /* Pods_wagon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCFD669D3B04D665B1EE1E89 /* Pods_wagon.framework */; };
 		BF2EFEFD2729FF822D096FE9 /* Pods_wagonadmin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41EA9B01C7840292F85D981E /* Pods_wagonadmin.framework */; };
 /* End PBXBuildFile section */
@@ -104,6 +109,10 @@
 		83EE4BBC2284E1BC00904DD7 /* AddToCategoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToCategoryVC.swift; sourceTree = "<group>"; };
 		83FC662A2288D86900A46740 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		83FC662D22896DE500A46740 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		83FFBC10233B81AA008AE0C6 /* CheckOutVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckOutVC.swift; sourceTree = "<group>"; };
+		83FFBC12233B9141008AE0C6 /* CheckOutCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckOutCell.swift; sourceTree = "<group>"; };
+		83FFBC13233B9141008AE0C6 /* CheckOutCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CheckOutCell.xib; sourceTree = "<group>"; };
+		83FFBC17233BD335008AE0C6 /* StripeCart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StripeCart.swift; sourceTree = "<group>"; };
 		A7544E9127438F57F7A7683D /* Pods-wagon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wagon.debug.xcconfig"; path = "Pods/Target Support Files/Pods-wagon/Pods-wagon.debug.xcconfig"; sourceTree = "<group>"; };
 		BCFD669D3B04D665B1EE1E89 /* Pods_wagon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_wagon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C36C6868C696D348626331FF /* Pods-wagonadmin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wagonadmin.debug.xcconfig"; path = "Pods/Target Support Files/Pods-wagonadmin/Pods-wagonadmin.debug.xcconfig"; sourceTree = "<group>"; };
@@ -154,6 +163,7 @@
 				83EE4BAD227BAE0A00904DD7 /* ProductCell.xib */,
 				8304F05D2275027200C9B368 /* CategoryCell.xib */,
 				83EE4BB32281FA4900904DD7 /* ProductDetailVCViewController.xib */,
+				83FFBC13233B9141008AE0C6 /* CheckOutCell.xib */,
 			);
 			path = Xibs;
 			sourceTree = "<group>";
@@ -165,6 +175,7 @@
 				8304F05C2275027200C9B368 /* CategoryCell.swift */,
 				83EE4BAC227BAE0A00904DD7 /* ProductCell.swift */,
 				83EE4BB22281FA4900904DD7 /* ProductDetailVCViewController.swift */,
+				83FFBC12233B9141008AE0C6 /* CheckOutCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -178,6 +189,7 @@
 				83AEEEB2225F95A400AD09BC /* LoginVC.swift */,
 				83EE4BA3227BAC0100904DD7 /* ProductsVC.swift */,
 				8304F05222703F7800C9B368 /* ForgotPasswordVC.swift */,
+				83FFBC10233B81AA008AE0C6 /* CheckOutVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -243,6 +255,7 @@
 		83B4B76F225A146A00632FB4 /* wagon */ = {
 			isa = PBXGroup;
 			children = (
+				83FFBC16233BD324008AE0C6 /* Stripe */,
 				83FC662C22896DCE00A46740 /* Services */,
 				8304F04F22703F1100C9B368 /* XIBs */,
 				83AEEEAB225F94D600AD09BC /* Storyboards */,
@@ -304,6 +317,14 @@
 				83FC662D22896DE500A46740 /* UserService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		83FFBC16233BD324008AE0C6 /* Stripe */ = {
+			isa = PBXGroup;
+			children = (
+				83FFBC17233BD335008AE0C6 /* StripeCart.swift */,
+			);
+			path = Stripe;
 			sourceTree = "<group>";
 		};
 		8E135B15C95F062F0DF43FC4 /* Frameworks */ = {
@@ -403,6 +424,7 @@
 				8304F0602275027200C9B368 /* CategoryCell.xib in Resources */,
 				83B4B778225A146B00632FB4 /* Assets.xcassets in Resources */,
 				83B4B776225A146A00632FB4 /* Main.storyboard in Resources */,
+				83FFBC1A233BE277008AE0C6 /* CheckOutCell.xib in Resources */,
 				83B4B79D225A1A1400632FB4 /* LoginStoryboard.storyboard in Resources */,
 				8304F05522703F7800C9B368 /* ForgotPasswordVC.xib in Resources */,
 				83EE4BB52281FA4900904DD7 /* ProductDetailVCViewController.xib in Resources */,
@@ -421,6 +443,7 @@
 				83EE4BB1227BAE0A00904DD7 /* ProductCell.xib in Resources */,
 				83AEEEA7225F837B00AD09BC /* GoogleService-Info.plist in Resources */,
 				83B4B78E225A14DD00632FB4 /* Main.storyboard in Resources */,
+				83FFBC1B233BE497008AE0C6 /* CheckOutCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -550,12 +573,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83FFBC18233BD335008AE0C6 /* StripeCart.swift in Sources */,
 				83EE4BA7227BACAD00904DD7 /* Product.swift in Sources */,
 				8304F0572271B45B00C9B368 /* FirebaseUtils.swift in Sources */,
 				83EE4BA4227BAC0100904DD7 /* ProductsVC.swift in Sources */,
 				8304F05A2275012A00C9B368 /* Category.swift in Sources */,
 				83FC662B2288D86900A46740 /* User.swift in Sources */,
 				83EE4BB42281FA4900904DD7 /* ProductDetailVCViewController.swift in Sources */,
+				83FFBC11233B81AA008AE0C6 /* CheckOutVC.swift in Sources */,
 				8375802D23340C9300509DB4 /* UserService.swift in Sources */,
 				83AEEEB62263807D00AD09BC /* Extensions.swift in Sources */,
 				83EE4BAE227BAE0A00904DD7 /* ProductCell.swift in Sources */,
@@ -567,6 +592,7 @@
 				8304F05422703F7800C9B368 /* ForgotPasswordVC.swift in Sources */,
 				839CB15E2265E0D300C17E2B /* Constants.swift in Sources */,
 				8304F05E2275027200C9B368 /* CategoryCell.swift in Sources */,
+				83FFBC14233B9141008AE0C6 /* CheckOutCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

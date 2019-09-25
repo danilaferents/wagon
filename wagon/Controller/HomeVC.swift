@@ -101,6 +101,8 @@ class HomeVC: UIViewController {
                     self.onDocumentModified(change: change, category: category)
                 case .removed:
                     self.onDocumentRemoved(change: change)
+                @unknown default:
+                    print("Unknown change appeared!")
                 }
             })
         })
