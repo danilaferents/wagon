@@ -288,16 +288,16 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="iHz-00-rqh">
-                                <rect key="frame" x="20" y="108" width="374" height="421"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="iHz-00-rqh">
+                                <rect key="frame" x="6" y="108" width="402" height="421"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="ATJ-b2-O7Q" firstAttribute="top" secondItem="DNo-ig-MgW" secondAttribute="bottom" constant="6" id="ARX-d4-8Tl"/>
-                            <constraint firstItem="D4d-vb-pzX" firstAttribute="trailing" secondItem="iHz-00-rqh" secondAttribute="trailing" constant="20" id="BzJ-f6-6RQ"/>
-                            <constraint firstItem="iHz-00-rqh" firstAttribute="leading" secondItem="D4d-vb-pzX" secondAttribute="leading" constant="20" id="Ehn-lU-TwC"/>
+                            <constraint firstItem="D4d-vb-pzX" firstAttribute="trailing" secondItem="iHz-00-rqh" secondAttribute="trailing" constant="6" id="BzJ-f6-6RQ"/>
+                            <constraint firstItem="iHz-00-rqh" firstAttribute="leading" secondItem="D4d-vb-pzX" secondAttribute="leading" constant="6" id="Ehn-lU-TwC"/>
                             <constraint firstItem="DNo-ig-MgW" firstAttribute="centerX" secondItem="ANm-4O-0u6" secondAttribute="centerX" id="FRI-rB-X2U"/>
                             <constraint firstItem="Gcd-Kz-T05" firstAttribute="leading" secondItem="D4d-vb-pzX" secondAttribute="leading" constant="20" id="Hwm-LW-iir"/>
                             <constraint firstItem="D4d-vb-pzX" firstAttribute="trailing" secondItem="Gcd-Kz-T05" secondAttribute="trailing" constant="20" id="IWb-r9-MPj"/>

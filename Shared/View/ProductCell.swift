@@ -14,6 +14,7 @@ protocol ProductCellDelegate : class {
     func productFavourited(product: Product)
 }
 
+
 class ProductCell: UITableViewCell {
     //Outlets
     @IBOutlet weak var productImg: RoundedImageView!

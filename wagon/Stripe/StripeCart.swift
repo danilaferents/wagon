@@ -28,6 +28,7 @@ final class _StripeCart {
         }
         return amount
     }
+    
     var processingFees : Int {
         if subtotal == 0 {
             return 0
