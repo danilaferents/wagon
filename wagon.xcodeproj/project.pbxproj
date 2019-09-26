@@ -61,7 +61,6 @@
 		83EE4BBD2284E1BC00904DD7 /* AddToCategoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83EE4BBC2284E1BC00904DD7 /* AddToCategoryVC.swift */; };
 		83FC662B2288D86900A46740 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FC662A2288D86900A46740 /* User.swift */; };
 		83FFBC11233B81AA008AE0C6 /* CheckOutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FFBC10233B81AA008AE0C6 /* CheckOutVC.swift */; };
-		83FFBC14233B9141008AE0C6 /* CheckOutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FFBC12233B9141008AE0C6 /* CheckOutCell.swift */; };
 		83FFBC18233BD335008AE0C6 /* StripeCart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FFBC17233BD335008AE0C6 /* StripeCart.swift */; };
 		8DB3B09AB887142848174E02 /* Pods_wagon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCFD669D3B04D665B1EE1E89 /* Pods_wagon.framework */; };
 		BF2EFEFD2729FF822D096FE9 /* Pods_wagonadmin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41EA9B01C7840292F85D981E /* Pods_wagonadmin.framework */; };
@@ -112,7 +111,6 @@
 		83FC662A2288D86900A46740 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		83FC662D22896DE500A46740 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		83FFBC10233B81AA008AE0C6 /* CheckOutVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckOutVC.swift; sourceTree = "<group>"; };
-		83FFBC12233B9141008AE0C6 /* CheckOutCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckOutCell.swift; sourceTree = "<group>"; };
 		83FFBC17233BD335008AE0C6 /* StripeCart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StripeCart.swift; sourceTree = "<group>"; };
 		A7544E9127438F57F7A7683D /* Pods-wagon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wagon.debug.xcconfig"; path = "Pods/Target Support Files/Pods-wagon/Pods-wagon.debug.xcconfig"; sourceTree = "<group>"; };
 		BCFD669D3B04D665B1EE1E89 /* Pods_wagon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_wagon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -176,7 +174,6 @@
 				8304F05C2275027200C9B368 /* CategoryCell.swift */,
 				83EE4BAC227BAE0A00904DD7 /* ProductCell.swift */,
 				83EE4BB22281FA4900904DD7 /* ProductDetailVCViewController.swift */,
-				83FFBC12233B9141008AE0C6 /* CheckOutCell.swift */,
 				8312AE7E233BF6D3008D4B7E /* CartItemCell.swift */,
 			);
 			path = View;
@@ -594,7 +591,6 @@
 				8304F05422703F7800C9B368 /* ForgotPasswordVC.swift in Sources */,
 				839CB15E2265E0D300C17E2B /* Constants.swift in Sources */,
 				8304F05E2275027200C9B368 /* CategoryCell.swift in Sources */,
-				83FFBC14233B9141008AE0C6 /* CheckOutCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

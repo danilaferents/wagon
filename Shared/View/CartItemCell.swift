@@ -7,6 +7,12 @@
 //
 
 import UIKit
+import Kingfisher
+
+
+protocol CartCellDelegate : class {
+    func productRemoveFromTrash(product: Product)
+}
 
 class CartItemCell: UITableViewCell {
 
@@ -20,27 +26,35 @@ class CartItemCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
     //Outlets
     @IBAction func trashBtn(_ sender: Any) {
     }
     @IBOutlet weak var imageOfItem: RoundedImageView!
     @IBOutlet weak var nameProductLbl: UILabel!
     
+    var product: Product!
     
-    func configureCell(product: Product) {
+    weak var delegate : CartCellDelegate?
+    
+    func configureCell(product: Product, delegate: CartCellDelegate) {
+        
+        self.delegate = delegate
+        self.product = product
+        
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency
         
         if let price = formatter.string(from: product.price as NSNumber) {
-            nameProductLbl.text = "\(product.name) \(price)"
+            nameProductLbl.text = "\(product.name) $\(price)"
         }
-        
         if let url = URL(string: product.imageUrl) {
-            imageView?.kf.setImage(with: url)
+            imageOfItem.kf.setImage(with: url)
         }
     }
     
     
     @IBAction func removeBtnClicked(_ sender: Any) {
+        delegate?.productRemoveFromTrash(product: product)
     }
 }

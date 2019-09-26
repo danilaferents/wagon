@@ -9,7 +9,8 @@
 import UIKit
 import FirebaseFirestore
 
-class ProductsVC: UIViewController, ProductCellDelegate {
+class ProductsVC: UIViewController {
+    
     
     //Outlets
     @IBOutlet weak var tableView: UITableView!
@@ -71,10 +72,15 @@ class ProductsVC: UIViewController, ProductCellDelegate {
                     self.onDocumentModified(change: change, product: product)
                 case .removed:
                     self.onDocumentRemoved(change: change)
+                @unknown default:
+                    print("Unknown cahange in TableView!")
                 }
             })
         })
     }
+}
+
+extension ProductsVC:  ProductCellDelegate {
     
     //Function to conform protocol
     func productFavourited(product: Product) {
@@ -84,8 +90,11 @@ class ProductsVC: UIViewController, ProductCellDelegate {
         tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
     }
     
+    //Function to conform protocol
+    func productAdd(product: Product) {
+        StripeCart.addItemToCart(item: product)
+    }
 }
-
 
     //Set number of rows
     extension ProductsVC: UITableViewDelegate, UITableViewDataSource {

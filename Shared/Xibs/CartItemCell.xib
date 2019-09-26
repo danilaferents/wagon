@@ -20,7 +20,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ktF-kl-8bP" customClass="RoundedShadowView" customModule="wagon" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="442" height="108"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="aerial_1" translatesAutoresizingMaskIntoConstraints="NO" id="rYe-6Y-5T9" customClass="RoundedImageView" customModule="wagon" customModuleProvider="target">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rYe-6Y-5T9" customClass="RoundedImageView" customModule="wagon" customModuleProvider="target">
                                 <rect key="frame" x="6" y="8" width="100" height="92"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="rYe-6Y-5T9" secondAttribute="height" multiplier="1:1" constant="8" id="kWT-dk-IJw"/>
@@ -44,10 +44,10 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="rYe-6Y-5T9" secondAttribute="bottom" constant="8" id="2PJ-Fo-T05"/>
+                            <constraint firstItem="iuL-bV-DQy" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="7ea-HK-KCJ" secondAttribute="trailing" constant="12" id="JFN-bt-QMY"/>
                             <constraint firstAttribute="trailing" secondItem="iuL-bV-DQy" secondAttribute="trailing" id="JFf-i2-UbI"/>
                             <constraint firstItem="rYe-6Y-5T9" firstAttribute="leading" secondItem="ktF-kl-8bP" secondAttribute="leading" constant="6" id="Q5D-U5-9Lm"/>
                             <constraint firstItem="7ea-HK-KCJ" firstAttribute="leading" secondItem="rYe-6Y-5T9" secondAttribute="trailing" constant="20" id="QND-03-pDv"/>
-                            <constraint firstItem="rYe-6Y-5T9" firstAttribute="leading" secondItem="ktF-kl-8bP" secondAttribute="leading" constant="6" id="Sd1-cs-ZUq"/>
                             <constraint firstItem="rYe-6Y-5T9" firstAttribute="top" secondItem="ktF-kl-8bP" secondAttribute="top" constant="8" id="c6I-Az-XBM"/>
                             <constraint firstItem="iuL-bV-DQy" firstAttribute="centerY" secondItem="ktF-kl-8bP" secondAttribute="centerY" id="hES-5a-s88"/>
                             <constraint firstItem="7ea-HK-KCJ" firstAttribute="centerY" secondItem="ktF-kl-8bP" secondAttribute="centerY" id="zrD-B6-6O1"/>
@@ -70,7 +70,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="aerial_1" width="1000" height="1333"/>
         <image name="red_trash" width="28" height="30"/>
     </resources>
 </document>

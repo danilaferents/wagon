@@ -58,10 +58,10 @@ extension CheckOutVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: Identifiers.trashCell, for: indexPath) as? CheckOutCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: Identifiers.trashCell, for: indexPath) as? CartItemCell{
 
             let product = StripeCart.cartItems[indexPath.row]
-            cell.configureCell(product: product)
+            cell.configureCell(product: product, delegate: self)
                 return cell
         }
         return UITableViewCell()
@@ -71,5 +71,12 @@ extension CheckOutVC: UITableViewDelegate, UITableViewDataSource {
         return 100
     }
     
+}
+
+extension CheckOutVC: CartCellDelegate {
+    func productRemoveFromTrash(product: Product) {
+        StripeCart.removeItemFromCart(item: product)
+        tableView.reloadData()
+    }
 }
 
