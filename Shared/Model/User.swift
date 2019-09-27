@@ -25,7 +25,7 @@ struct User {
         id = data["id"] as? String ?? ""
         email = data["email"] as? String ?? ""
         username = data["username"] as? String ?? ""
-        stripeId = data["StripeId"] as? String ?? ""
+        stripeId = data["stripeId"] as? String ?? ""
     }
     
     static func modelToData(user: User) -> [String: Any] {

@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Stripe
+import FirebaseFunctions
 
 class CheckOutVC: UIViewController {
     
@@ -24,11 +26,13 @@ class CheckOutVC: UIViewController {
     
     //Activity Indicator
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    
+//Variables
+    var paymentContext: STPPaymentContext!
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
         setUpPaymentMethod()
+        SetUpStripeConfig()
     }
     func setupTableView() {
         
@@ -43,11 +47,29 @@ class CheckOutVC: UIViewController {
         shippingLbl.text = StripeCart.shippingFees.penniesToFormattedCurrency()
         totalLbl.text = StripeCart.total.penniesToFormattedCurrency()
     }
+    
+    func SetUpStripeConfig() {
+        let config = STPPaymentConfiguration.shared()
+        config.requiredBillingAddressFields = .name
+        config.requiredShippingAddressFields = [.postalAddress]
+        
+        let customerContext = STPCustomerContext(keyProvider: StripeApi)
+        paymentContext = STPPaymentContext(customerContext: customerContext, configuration: config, theme: .default())
+        
+//        customerContext.retrieveCustomer { (customer, error) in
+//            print(error?.localizedDescription)
+//        }
+        paymentContext.paymentAmount = StripeCart.total
+        paymentContext.delegate = self
+        paymentContext.hostViewController = self
+    }
     @IBAction func orderBtnClicked(_ sender: Any) {
     }
     @IBAction func paymentMethodBtnClicked(_ sender: Any) {
+        paymentContext.presentPaymentOptionsViewController()
     }
     @IBAction func shippingMethodBtnClicked(_ sender: Any) {
+        paymentContext.presentShippingViewController()
     }
     
 }
@@ -73,10 +95,33 @@ extension CheckOutVC: UITableViewDelegate, UITableViewDataSource {
     
 }
 
+//Remove item from Cart
 extension CheckOutVC: CartCellDelegate {
     func productRemoveFromTrash(product: Product) {
         StripeCart.removeItemFromCart(item: product)
         tableView.reloadData()
+        setUpPaymentMethod()
+        paymentContext.paymentAmount = StripeCart.total
     }
 }
 
+//For Stripe
+extension CheckOutVC: STPPaymentContextDelegate {
+    func paymentContextDidChange(_ paymentContext: STPPaymentContext) {
+        
+    }
+    
+    func paymentContext(_ paymentContext: STPPaymentContext, didFailToLoadWithError error: Error) {
+        
+    }
+    
+    func paymentContext(_ paymentContext: STPPaymentContext, didCreatePaymentResult paymentResult: STPPaymentResult, completion: @escaping STPPaymentStatusBlock) {
+        
+    }
+    
+    func paymentContext(_ paymentContext: STPPaymentContext, didFinishWith status: STPPaymentStatus, error: Error?) {
+        
+    }
+    
+    
+}

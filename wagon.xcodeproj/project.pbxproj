@@ -19,6 +19,7 @@
 		8304F0612275027200C9B368 /* CategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8304F05D2275027200C9B368 /* CategoryCell.xib */; };
 		8312AE80233BF6D3008D4B7E /* CartItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8312AE7E233BF6D3008D4B7E /* CartItemCell.swift */; };
 		8312AE81233BF6D3008D4B7E /* CartItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8312AE7F233BF6D3008D4B7E /* CartItemCell.xib */; };
+		8312AE83233CD524008D4B7E /* StripeApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8312AE82233CD524008D4B7E /* StripeApi.swift */; };
 		8375802D23340C9300509DB4 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FC662D22896DE500A46740 /* UserService.swift */; };
 		83758030233410C500509DB4 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FC662D22896DE500A46740 /* UserService.swift */; };
 		83758031233410CD00509DB4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FC662A2288D86900A46740 /* User.swift */; };
@@ -78,6 +79,7 @@
 		8304F05D2275027200C9B368 /* CategoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCell.xib; sourceTree = "<group>"; };
 		8312AE7E233BF6D3008D4B7E /* CartItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItemCell.swift; sourceTree = "<group>"; };
 		8312AE7F233BF6D3008D4B7E /* CartItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CartItemCell.xib; sourceTree = "<group>"; };
+		8312AE82233CD524008D4B7E /* StripeApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StripeApi.swift; sourceTree = "<group>"; };
 		839CB15D2265E0D300C17E2B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		839CB1602266235900C17E2B /* RoundedViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedViews.swift; sourceTree = "<group>"; };
 		83AEEEA4225F7F8300AD09BC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -322,6 +324,7 @@
 			isa = PBXGroup;
 			children = (
 				83FFBC17233BD335008AE0C6 /* StripeCart.swift */,
+				8312AE82233CD524008D4B7E /* StripeApi.swift */,
 			);
 			path = Stripe;
 			sourceTree = "<group>";
@@ -574,6 +577,7 @@
 				83FFBC18233BD335008AE0C6 /* StripeCart.swift in Sources */,
 				83EE4BA7227BACAD00904DD7 /* Product.swift in Sources */,
 				8304F0572271B45B00C9B368 /* FirebaseUtils.swift in Sources */,
+				8312AE83233CD524008D4B7E /* StripeApi.swift in Sources */,
 				83EE4BA4227BAC0100904DD7 /* ProductsVC.swift in Sources */,
 				8304F05A2275012A00C9B368 /* Category.swift in Sources */,
 				83FC662B2288D86900A46740 /* User.swift in Sources */,
