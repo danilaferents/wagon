@@ -41,3 +41,7 @@ extension Int {
         return "$0.00"
     }
 }
+
+extension Locale {
+    static var current : Locale { return Locale.init(identifier: "en_US") }
+}

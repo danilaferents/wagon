@@ -44,9 +44,11 @@ class CartItemCell: UITableViewCell {
         
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency
+        formatter.currencyCode = "USD"
+        formatter.currencySymbol = "$"
         
         if let price = formatter.string(from: product.price as NSNumber) {
-            nameProductLbl.text = "\(product.name) $\(price)"
+            nameProductLbl.text = "\(product.name) \(price)"
         }
         if let url = URL(string: product.imageUrl) {
             imageOfItem.kf.setImage(with: url)

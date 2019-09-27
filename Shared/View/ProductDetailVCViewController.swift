@@ -32,6 +32,9 @@ class ProductDetailVCViewController: UIViewController {
         let formatter = NumberFormatter()
         
         formatter.numberStyle = .currency
+        formatter.currencyCode = "USD"
+        formatter.currencySymbol = "$"
+        
         if let price = formatter.string(from: product.price as NSNumber) {
             productPrice.text = price
         }

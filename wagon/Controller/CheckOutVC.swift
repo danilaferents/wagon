@@ -49,6 +49,7 @@ class CheckOutVC: UIViewController {
     }
     
     func SetUpStripeConfig() {
+        //Configuration in payment and shipping onfo required
         let config = STPPaymentConfiguration.shared()
         config.requiredBillingAddressFields = .name
         config.requiredShippingAddressFields = [.postalAddress]

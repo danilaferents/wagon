@@ -48,6 +48,8 @@ class ProductCell: UITableViewCell {
         
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency
+        formatter.currencyCode = "USD"
+        formatter.currencySymbol = "$"
         if let price = formatter.string(from: product.price as NSNumber) {
             productPrc.text = price
         }
