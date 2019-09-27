@@ -33,6 +33,8 @@ extension Int {
         let formatter = NumberFormatter()
         
         formatter.numberStyle = .currency
+        formatter.currencyCode = "USD"
+        formatter.currencySymbol = "$"
         
         if let dollarString = formatter.string(from: dollars as NSNumber) {
             return dollarString

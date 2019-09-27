@@ -31,7 +31,7 @@ class CheckOutVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
-        setUpPaymentMethod()
+        setUpPaymentInfo()
         SetUpStripeConfig()
     }
     func setupTableView() {
@@ -41,7 +41,7 @@ class CheckOutVC: UIViewController {
         tableView.register(UINib(nibName: Identifiers.trashCell, bundle: nil), forCellReuseIdentifier: Identifiers.trashCell)
     }
     
-    func setUpPaymentMethod() {
+    func setUpPaymentInfo() {
         subtotalLbl.text = StripeCart.subtotal.penniesToFormattedCurrency()
         feeLbl.text = StripeCart.processingFees.penniesToFormattedCurrency()
         shippingLbl.text = StripeCart.shippingFees.penniesToFormattedCurrency()
@@ -101,7 +101,7 @@ extension CheckOutVC: CartCellDelegate {
     func productRemoveFromTrash(product: Product) {
         StripeCart.removeItemFromCart(item: product)
         tableView.reloadData()
-        setUpPaymentMethod()
+        setUpPaymentInfo()
         paymentContext.paymentAmount = StripeCart.total
     }
 }
@@ -109,7 +109,20 @@ extension CheckOutVC: CartCellDelegate {
 //For Stripe
 extension CheckOutVC: STPPaymentContextDelegate {
     func paymentContextDidChange(_ paymentContext: STPPaymentContext) {
-        
+        //Updating the selected payment method
+        if let paymentMethod = paymentContext.selectedPaymentOption {
+            paymentMethodBtn.setTitle(paymentMethod.label, for: .normal)
+        } else {
+            paymentMethodBtn.setTitle("Select Method", for: .normal)
+        }
+        //Updating the selected shipping method
+        if let shippingMehod = paymentContext.selectedShippingMethod {
+            shippingMethodBtn.setTitle(shippingMehod.label, for: .normal)
+            StripeCart.shippingFees = Int(Double(truncating: shippingMehod.amount) * 100)
+            setUpPaymentInfo()
+        } else {
+            shippingMethodBtn.setTitle("Select Method", for: .normal)
+        }
     }
     
     func paymentContext(_ paymentContext: STPPaymentContext, didFailToLoadWithError error: Error) {
@@ -119,6 +132,26 @@ extension CheckOutVC: STPPaymentContextDelegate {
     func paymentContext(_ paymentContext: STPPaymentContext, didCreatePaymentResult paymentResult: STPPaymentResult, completion: @escaping STPPaymentStatusBlock) {
         
     }
+    
+    func paymentContext(_ paymentContext: STPPaymentContext, didUpdateShippingAddress address: STPAddress, completion: @escaping STPShippingMethodsCompletionBlock) {
+        let upsGround = PKShippingMethod()
+        upsGround.amount = 0
+        upsGround.label = "Курьер"
+        upsGround.detail = "Arrives in 3-5 days"
+        upsGround.identifier = "ups_ground"
+        
+        let fedEx = PKShippingMethod()
+        fedEx.amount = 6.99
+        fedEx.label = "FedEx"
+        fedEx.detail = "Arrives tomorrow"
+        fedEx.identifier = "fedex"
+        
+        if address.country == "US" {
+            completion(.valid, nil, [upsGround, fedEx], fedEx)
+        } else {
+            completion(.invalid, nil, nil, nil)
+        }
+     }
     
     func paymentContext(_ paymentContext: STPPaymentContext, didFinishWith status: STPPaymentStatus, error: Error?) {
         
