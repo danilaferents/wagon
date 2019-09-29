@@ -207,10 +207,20 @@ extension CheckOutVC: STPPaymentContextDelegate {
             title = "Error"
             message = error?.localizedDescription ?? ""
         case .userCancellation:
-            <#code#>
+            return
         @unknown default:
-            <#code#>
+            print("Something went wrong. Unknown case value in didFinishWith!")
+            return
         }
+        
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let action = UIAlertAction(title: "Ok", style: .default) { (action) in
+            self.navigationController?.popViewController(animated: true)
+        }
+        
+        alertController.addAction(action)
+        
+        self.present(alertController,animated:  true,completion:  nil)
     }
     
     
