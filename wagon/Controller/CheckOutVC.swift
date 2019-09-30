@@ -28,6 +28,7 @@ class CheckOutVC: UIViewController {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 //Variables
     var paymentContext: STPPaymentContext!
+    var paymentOptions: STPPaymentOption!
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
@@ -128,6 +129,7 @@ extension CheckOutVC: STPPaymentContextDelegate {
         }
     }
     
+    
     func paymentContext(_ paymentContext: STPPaymentContext, didFailToLoadWithError error: Error) {
         activityIndicator.stopAnimating()
         
@@ -154,10 +156,12 @@ extension CheckOutVC: STPPaymentContextDelegate {
         let data: [String: Any] = [
             "total" : StripeCart.total,
             "customerId" : userService.user.stripeId,
-            "idempotency" : idempotency
+            "idempotency" : idempotency,
+            "mail": userService.user.email,
+//            "paymentMethod": paymentOptions.label
         ]
         
-        Functions.functions().httpsCallable("makeCharge").call(data) { (result, error) in
+        Functions.functions().httpsCallable("createCharge").call(data) { (result, error) in
             
             if let error = error {
                 debugPrint(error.localizedDescription)
@@ -171,6 +175,7 @@ extension CheckOutVC: STPPaymentContextDelegate {
             completion(STPPaymentStatus.success, nil)
         }
     }
+    
     
     func paymentContext(_ paymentContext: STPPaymentContext, didUpdateShippingAddress address: STPAddress, completion: @escaping STPShippingMethodsCompletionBlock) {
         let upsGround = PKShippingMethod()
@@ -223,5 +228,38 @@ extension CheckOutVC: STPPaymentContextDelegate {
         self.present(alertController,animated:  true,completion:  nil)
     }
     
+    
+}
+
+extension CheckOutVC: STPPaymentOptionsViewControllerDelegate {
+    func paymentOptionsViewController(_ paymentOptionsViewController: STPPaymentOptionsViewController, didFailToLoadWithError error: Error) {
+        
+        let alertController = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+        
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
+            self.dismiss(animated: true, completion: nil)
+        }
+        
+        let retry = UIAlertAction(title: "Retry", style: .default) { (action) in
+            self.dismiss(animated: true, completion: nil)
+        }
+        
+        alertController.addAction(cancel)
+        alertController.addAction(retry)
+        
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    func paymentOptionsViewControllerDidFinish(_ paymentOptionsViewController: STPPaymentOptionsViewController) {
+         self.dismiss(animated: true, completion: nil)
+    }
+    
+    func paymentOptionsViewControllerDidCancel(_ paymentOptionsViewController: STPPaymentOptionsViewController) {
+         self.dismiss(animated: true, completion: nil)
+    }
+    
+    func paymentOptionsViewController(_ paymentOptionsViewController: STPPaymentOptionsViewController, didSelect paymentOption: STPPaymentOption) {
+        self.paymentOptions = paymentOption
+    }
     
 }

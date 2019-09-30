@@ -9,7 +9,7 @@
 import UIKit
 import FirebaseFirestore
 
-class ProductsVC: UIViewController {
+class ProductsVC: UIViewController, ProductCellDelegate {
     
     
     //Outlets
@@ -43,6 +43,19 @@ class ProductsVC: UIViewController {
         listener.remove()
         products.removeAll()
         tableView.reloadData()
+    }
+    
+    //Function to conform protocol
+    func productFavourited(product: Product) {
+        userService.favouriteSelected(product: product)
+        guard let index = products.firstIndex(of: product) else {return}
+        //To Call Configure Cell in cellfoRowat
+        tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
+    }
+    
+    //Function to conform protocol
+    func productAdd(product: Product) {
+        StripeCart.addItemToCart(item: product)
     }
     
     func setProductsListener() {
@@ -80,21 +93,22 @@ class ProductsVC: UIViewController {
     }
 }
 
-extension ProductsVC:  ProductCellDelegate {
-    
-    //Function to conform protocol
-    func productFavourited(product: Product) {
-        userService.favouriteSelected(product: product)
-        guard let index = products.firstIndex(of: product) else {return}
-        //To Call Configure Cell in cellfoRowat
-        tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
-    }
-    
-    //Function to conform protocol
-    func productAdd(product: Product) {
-        StripeCart.addItemToCart(item: product)
-    }
-}
+//иначе ругается на переопредление в админке
+//extension ProductsVC:  ProductCellDelegate {
+//
+//    //Function to conform protocol
+//    func productFavourited(product: Product) {
+//        userService.favouriteSelected(product: product)
+//        guard let index = products.firstIndex(of: product) else {return}
+//        //To Call Configure Cell in cellfoRowat
+//        tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
+//    }
+//
+//    //Function to conform protocol
+//    func productAdd(product: Product) {
+//        StripeCart.addItemToCart(item: product)
+//    }
+//}
 
     //Set number of rows
     extension ProductsVC: UITableViewDelegate, UITableViewDataSource {

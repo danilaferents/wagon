@@ -44,6 +44,10 @@
 		83B4B79D225A1A1400632FB4 /* LoginStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83B4B79C225A1A1400632FB4 /* LoginStoryboard.storyboard */; };
 		83B4EA6D228646C1009517EA /* AdminProductsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B4EA6C228646C1009517EA /* AdminProductsVC.swift */; };
 		83B4EA6F22864A86009517EA /* AddEditProductsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B4EA6E22864A86009517EA /* AddEditProductsVC.swift */; };
+		83BA6CE92342B2FB00083BF9 /* StripeCart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FFBC17233BD335008AE0C6 /* StripeCart.swift */; };
+		83BA6CEA2342B2FE00083BF9 /* StripeApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8312AE82233CD524008D4B7E /* StripeApi.swift */; };
+		83BA6CEB2342B39F00083BF9 /* CartItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8312AE7E233BF6D3008D4B7E /* CartItemCell.swift */; };
+		83BA6CEC2342B3C400083BF9 /* CheckOutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FFBC10233B81AA008AE0C6 /* CheckOutVC.swift */; };
 		83EE4BA4227BAC0100904DD7 /* ProductsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83EE4BA3227BAC0100904DD7 /* ProductsVC.swift */; };
 		83EE4BA5227BAC0E00904DD7 /* ProductsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83EE4BA3227BAC0100904DD7 /* ProductsVC.swift */; };
 		83EE4BA7227BACAD00904DD7 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83EE4BA6227BACAD00904DD7 /* Product.swift */; };
@@ -508,6 +512,7 @@
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/Stripe/Stripe.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
@@ -522,6 +527,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Stripe.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
@@ -607,11 +613,15 @@
 				83EE4BA5227BAC0E00904DD7 /* ProductsVC.swift in Sources */,
 				83EE4BB72284D9B900904DD7 /* RoundedViews.swift in Sources */,
 				83EE4BBB2284DA0F00904DD7 /* ProductDetailVCViewController.swift in Sources */,
+				83BA6CEC2342B3C400083BF9 /* CheckOutVC.swift in Sources */,
 				83B4B78B225A14DD00632FB4 /* AdminHomeVC.swift in Sources */,
 				83EE4BB62284D8CA00904DD7 /* HomeVC.swift in Sources */,
 				83758030233410C500509DB4 /* UserService.swift in Sources */,
+				83BA6CEA2342B2FE00083BF9 /* StripeApi.swift in Sources */,
 				83B4B789225A14DD00632FB4 /* AppDelegate.swift in Sources */,
+				83BA6CE92342B2FB00083BF9 /* StripeCart.swift in Sources */,
 				83B4EA6D228646C1009517EA /* AdminProductsVC.swift in Sources */,
+				83BA6CEB2342B39F00083BF9 /* CartItemCell.swift in Sources */,
 				8304F05B2275012A00C9B368 /* Category.swift in Sources */,
 				83EE4BAF227BAE0A00904DD7 /* ProductCell.swift in Sources */,
 				83EE4BBD2284E1BC00904DD7 /* AddToCategoryVC.swift in Sources */,
