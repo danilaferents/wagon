@@ -47,6 +47,10 @@ class ProductsVC: UIViewController, ProductCellDelegate {
     
     //Function to conform protocol
     func productFavourited(product: Product) {
+        if userService.isGuest {
+            self.simpleAlert(title: "Hi friend!", msg: "This is a user only feature please create a registered user to take advantage of all features!")
+            return
+        }
         userService.favouriteSelected(product: product)
         guard let index = products.firstIndex(of: product) else {return}
         //To Call Configure Cell in cellfoRowat
@@ -55,6 +59,9 @@ class ProductsVC: UIViewController, ProductCellDelegate {
     
     //Function to conform protocol
     func productAdd(product: Product) {
+        if userService.isGuest {
+            self.simpleAlert(title: "Hi friend!", msg: "This is a user only feature please create a registered user to take advantage of all features!")
+        }
         StripeCart.addItemToCart(item: product)
     }
     
